@@ -1,0 +1,53 @@
+/* Intro */
+.intro-bg {
+    margin: 0 auto;
+    padding-top: 290px;
+    padding-bottom: 60px;
+    background: url(../img/bg-intro.jpg) no-repeat center;
+    background-size: cover;
+}
+.intro {
+    display: flex;
+    justify-content: space-between;
+}
+.intro-form {
+    box-shadow: 0 6px 10px rgba(24, 34, 46, 0.14),
+        0 1px 18px rgba(24, 34, 46, 0.12), 0 3px 5px rgba(24, 34, 46, 0.2);
+    position: relative;
+    height: 50px;
+    z-index: 2;
+}
+.intro-form input[type="email"] {
+    font: 400 1em/1.5 "Nunito", sans-serif;
+    background: var(--cor-6);
+    border: none !important;
+    width: 470px;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    padding-right: 200px;
+    box-sizing: border-box;
+}
+.intro-form input[type="email"]::placeholder {
+    color: var(--cor-2);
+}
+.intro-form .intro-botao {
+    font: 700 1em/1.5 "Nunito", sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    background: var(--cor-s2);
+    border-radius: 0 5px 5px 0;
+    top: 0;
+    right: -1px;
+    bottom: -2px;
+    width: 185px;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.intro-form .intro-botao:hover {
+    background-color: var(--cor-s1);
+}
+/* Fim da Intro */

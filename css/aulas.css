@@ -1,0 +1,108 @@
+.aulas-bg {
+    background: var(--cor-0);
+}
+.aulas-titulo {
+    text-align: center;
+    position: relative;
+    top: -32px;
+}
+.aulas-titulo img {
+    margin: 0 auto;
+}
+.aulas-planos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.aulas-cartao {
+    background: var(--cor-6);
+    border-radius: 5px;
+    max-width: 380px;
+    padding: 30px 80px;
+    box-shadow: 0 2px 4px rgba(218, 227, 235, 0.14),
+        0 4px 5px rgba(218, 227, 235, 0.12), 0 1px 10px rgba(218, 227, 235, 0.2);
+}
+.aulas-cartao img {
+    position: relative;
+    margin: 0 auto;
+    bottom: 50px;
+}
+.aulas-cartao h2 {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: -30px;
+}
+.aulas-cartao h2::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--cor-0);
+    margin-top: 30px;
+}
+.aulas-cartao ul li::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #ee2211;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.aulas-planos ul {
+    padding: 15px;
+}
+.aulas-cartao ul li + li {
+    margin-top: 15px;
+}
+.aulas-cartao span {
+    margin-top: 15px;
+}
+.aulas-cartao span::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--cor-0);
+    margin-bottom: 15px;
+}
+.aulas-cartao a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cor-5);
+    font: 700 1em/1.5 "Nunito", sans-serif;
+    color: var(--cor-6);
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.aulas-cartao a::after {
+    content: "";
+    display: inline-block;
+    background: url(../../img/seta.svg) no-repeat center;
+    width: 15px;
+    height: 15px;
+}
+
+.aulas-cartao a:hover {
+    background: var(--cor-4);
+}
+
+.aulas-info {
+    padding: 30px 0 60px 0;
+    text-align: center;
+}
+.aulas-info span {
+    font-weight: 700;
+}
+.aulas-info a {
+    color: var(--cor-3);
+    border-bottom: 2px solid var(--cor-s2);
+}

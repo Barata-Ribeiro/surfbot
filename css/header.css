@@ -1,0 +1,30 @@
+/* Header */
+.header-bg {
+    background-color: var(--cor-5);
+}
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+.header-menu ul {
+    display: flex;
+}
+.header-menu-links a {
+    padding: 30px;
+}
+.header-menu li #main {
+    border-bottom: 2px solid var(--cor-s2);
+    transition: 0.3s;
+}
+.header-menu li #main:hover {
+    border-bottom: 6px solid var(--cor-s1);
+}
+.header-menu li + li::before {
+    content: url(../img/separador.svg);
+    display: inline-block;
+    padding: 0 15px;
+}
+/* Fim do Header */
