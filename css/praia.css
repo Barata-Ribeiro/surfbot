@@ -3,8 +3,13 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: flex-start;
     gap: 15px;
     margin: 60px auto;
+}
+.praia-info {
+    max-width: 470px !important;
 }
 .praia-galeria {
     flex: 1;
@@ -14,15 +19,15 @@
 .img-pranchas {
     max-width: 570px;
     border-radius: 5px;
-    box-shadow: 0 6px 10px rgba(218, 227, 235, 0.14),
-        0 1px 18px rgba(218, 227, 235, 0.12), 0 3px 5px rgba(218, 227, 235, 0.2);
+    box-shadow: 0 6px 10px rgba(24, 34, 46, 0.14),
+        0 1px 18px rgba(24, 34, 46, 0.12), 0 3px 5px rgba(24, 34, 46, 0.2);
     position: relative;
     z-index: 1;
 }
 .praia-galeria .img-mapa {
     max-width: 540px;
-    box-shadow: 0 9px 12px rgba(218, 227, 235, 0.14),
-        0 3px 16px rgba(218, 227, 235, 0.12), 0 5px 6px rgba(218, 227, 235, 0.2);
+    box-shadow: 0 9px 12px rgba(24, 34, 46, 0.14),
+        0 3px 16px rgba(24, 34, 46, 0.12), 0 5px 6px rgba(24, 34, 46, 0.2);
     position: absolute;
     z-index: 2;
     bottom: 130px;
@@ -83,13 +88,4 @@
 }
 .praia-info p + p {
     margin-top: 15px;
-}
-@media (min-width: 1260px) {
-    .praia {
-        flex-direction: row-reverse;
-        align-items: flex-start;
-    }
-    .praia-info {
-        max-width: 470px;
-    }
 }

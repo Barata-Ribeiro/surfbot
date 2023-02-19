@@ -12,8 +12,8 @@
 .header-menu ul {
     display: flex;
 }
-.header-menu-links a {
-    padding: 30px;
+.header-menu li a:hover {
+    color: var(--cor-2);
 }
 .header-menu li #main {
     border-bottom: 2px solid var(--cor-s2);

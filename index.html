@@ -4,11 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surfbot - Escola de Surf</title>
+    <meta name="title" content="Surfbot" />
+    <meta name="description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://github.com/Barata-Ribeiro/surfbot" />
+    <meta property="og:title" content="Surfbot" />
+    <meta property="og:description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
+    <meta property="og:image" content="./img/og-image.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://github.com/Barata-Ribeiro/surfbot" />
+    <meta property="twitter:title" content="Surfbot" />
+    <meta property="twitter:description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
+    <meta property="twitter:image" content="./img/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.min.css">
-    <title>Surfbot - Escola de Surf</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <script defer src="./js/script.js"></script>
+    <script>document.documentElement.classList.add('js')</script> -->
 </head>
 
 <body>
@@ -66,7 +81,7 @@
             <h1 class="font-1-xl cor-6">Escola de Surf</h1>
             <form class="intro-form" action="./" method="post">
                 <div class="intro-form-div">
-                    <input type="email" id="email" name="email" placeholder="contato@email.com" required>
+                    <input type="email" id="intro_email" name="intro_email" placeholder="contato@email.com" required>
                     <button type="submit" class="intro-botao">Matricule-se</button>
                 </div>
             </form>
@@ -153,6 +168,71 @@
         </div>
     </section>
 
+    <div class="frase-bg">
+        <div class="frase container">
+            <blockquote>
+                <p class="font-1-xl cor-6">“O surf liberta as ondas de uma vida.”</p>
+            </blockquote>
+            <span class="font-2-r-b cor-6">Regis Pereira</span>
+        </div>
+    </div>
+
+    <section class="contato container" aria-label="Contato">
+        <h1 class="font-1-xl cor-5">Contato</h1>
+        <div class="contato-container">
+            <div class="contato-form">
+                <form action="#" method="post">
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input class="form-style" type="text" id="nome" name="contato_nome" required />
+                    </div>
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input class="form-style" type="email" id="email" name="contato_email" placeholder="contato@email.com" required />
+                    </div>
+                    <div>
+                        <label for="msg">Mensagem</label>
+                        <textarea class="form-style" id="msg" name="contato_msg"></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contato-info">
+                <div>
+                    <dl class="font-2-s cor-3">
+                        <dt class="font-2-l-b">Endereço</dt>
+                        <dd>Praia Mansa nº 47</dd>
+                        <dd>Rio de Janeiro - RJ</dd>
+                        <dd>Procure a barraca vermelha</dd>
+                    </dl>
+                    <a class="font-2-r-b cor-4" href="#">Ver no mapa</a>
+                </div>
+                <div>
+                    <dl class="font-2-s cor-3">
+                        <dt class="font-2-l-b cor-3">Email & Telefone</dt>
+                        <dd>contato@surfbot.com</dd>
+                        <dd>21 99999-9999</dd>
+                    </dl>
+                </div>
+                <div>
+                    <dl class="font-2-s cor-3">
+                        <dt class="horario font-2-l-b cor-3">Horário</dt>
+                        <dd>De Sexta à Sábado</dd>
+                        <dd>Das 06:00 às 14:00</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-bg">
+        <div class="footer container">
+            <p class="font-2-r-b cor-6">Surfnet 2023 © Alguns direitos reservados.</p>
+            <img class="cor-6" src="./img/surfbot-icon-f.svg" alt="Minilogo surfbot">
+        </div>
+    </footer>
 </body>
 
 </html>

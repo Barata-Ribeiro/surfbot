@@ -1,0 +1,9 @@
+.footer-bg {
+    background-color: var(--cor-p2);
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}

@@ -1,6 +1,5 @@
 /* Intro */
 .intro-bg {
-    margin: 0 auto;
     padding-top: 290px;
     padding-bottom: 60px;
     background: url(../img/bg-intro.jpg) no-repeat center;
@@ -21,10 +20,10 @@
     font: 400 1em/1.5 "Nunito", sans-serif;
     background: var(--cor-6);
     border: none !important;
+    outline: none !important;
     width: 470px;
     height: 100%;
     border-radius: 5px;
-    border: none;
     padding: 15px;
     padding-right: 200px;
     box-sizing: border-box;
@@ -34,6 +33,7 @@
 }
 .intro-form .intro-botao {
     font: 700 1em/1.5 "Nunito", sans-serif;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     position: absolute;
     background: var(--cor-s2);
@@ -44,7 +44,7 @@
     width: 185px;
     outline: none;
     border: none;
-    color: #fff;
+    color: var(--cor-6);
     cursor: pointer;
 }
 .intro-form .intro-botao:hover {
