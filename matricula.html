@@ -4,35 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surfbot - Escola de Surf</title>
-    <meta name="title" content="Surfbot - Escola de Surf" />
+    <title>Matricule-se | Surfbot</title>
+    <meta name="title" content="Matricule-se | Surfbot" />
     <meta name="description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://github.com/Barata-Ribeiro/surfbot" />
-    <meta property="og:title" content="Surfbot - Escola de Surf" />
+    <meta property="og:title" content="Matricule-se | Surfbot" />
     <meta property="og:description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
     <meta property="og:image" content="./img/og-image.jpg" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://github.com/Barata-Ribeiro/surfbot" />
-    <meta property="twitter:title" content="Surfbot - Escola de Surf" />
+    <meta property="twitter:title" content="Matricule-se | Surfbot" />
     <meta property="twitter:description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
     <meta property="twitter:image" content="./img/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.min.css">
-    <script defer src="./js/script.js"></script>
+    <script defer src="./js/form.js"></script>
     <script>document.documentElement.classList.add('js')</script>
 </head>
 
 <body>
-    <div class="superinfo-bg">
-        <div class="container">
-            <p class="font-2-s-b cor-6">Aulas na Praia Mansa de Sexta à Domingo das 06:00 às 14:00</p>
-        </div>
-    </div>
-
     <header class="header-bg">
         <div class="container header">
             <a href="./" aria-label="Logo">
@@ -67,166 +61,167 @@
             </a>
             <nav class="header-menu">
                 <ul class="font-2-r-b">
-                    <li><a class="cor-6" href="#praia">Praia</a></li>
-                    <li><a class="cor-6" href="#aulas">Aulas</a></li>
-                    <li><a class="cor-6" href="#contato">Contato</a></li>
+                    <li><a class="cor-6" href="./index.html#praia">Praia</a></li>
+                    <li><a class="cor-6" href="./index.html#aulas">Aulas</a></li>
+                    <li><a class="cor-6" href="./index.html#contato">Contato</a></li>
                     <li><a class="cor-6" id="main" href="./matricula.html">Matricule-se</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="intro-bg" id="intro" aria-label="Introdução">
-        <div class="intro container">
-            <h1 class="font-1-xl cor-6">Escola de Surf</h1>
-            <form class="intro-form" action="./" method="post">
-                <div class="intro-form-div">
-                    <input type="email" id="intro_email" name="intro_email" placeholder="contato@email.com" required>
-                    <button type="submit" class="intro-botao">Matricule-se</button>
+    <main class="matricula" id="matricula" aria-label="Matrícula">
+        <h1 class="font-1-xl cor-5 mbg">Matricule-se</h1>
+        <div class="matricula-container container">
+            <form class="matricula-form" action="./" method="post">
+                <div>
+                    <label for="nome">
+                        <span class="form-label">Nome Completo</span>
+                        <input class="form-style" type="text" id="nome" name="matricula_nome" required />
+                    </label>
+                    <label for="email">
+                        <span class="form-label">Email</span>
+                        <input class="form-style" type="email" id="email" name="matricula_email" placeholder="contato@email.com" required />
+                    </label>
+                    <label for="cpf">
+                        <span class="form-label">CPF</span>
+                        <input class="form-style" type="text" id="cpf" name="matricula_cpf" placeholder="123.456.789-00" oninput="formatCPF()" required />
+                    </label>
+                    <div class="matricula-form-minigrid1">
+                        <label for="endereco">
+                            <span class="form-label">Endereço</span>
+                            <input class="form-style" type="text" id="endereco" name="matricula_endereco" placeholder="Rua, Número, Bairro" required />
+                        </label>
+                        <label for="estado">
+                            <span class="form-label">Estado</span>
+                            <select class="form-style form-select" id="estado" name="matricula_estado">
+                                <option value="" hidden="">Selecione o Estado</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </label>
+                        <label for="cep">
+                            <span class="form-label">CEP</span>
+                            <input class="form-style" type="text" id="cep" name="matricula_cep" oninput="formatCEP()" placeholder="12.345-000" required />
+                        </label>
+                        <label for="cidade">
+                            <span class="form-label">Cidade</span>
+                            <select class="form-style form-select" id="cidade" name="matricula_cidade">
+                                <option value="" hidden="">Selecione a Cidade</option>
+                            </select>
+                        </label>
+                    </div>
+                    <fieldset>
+                        <span class="font-2-r-b cor-p2">
+                            <legend>Forma de Pagamento</legend>
+                        </span>
+                        <div class="form-pagamento-tipo">
+                            <label for="cartao">
+                                <input class="" data-toggle-trigger="pagamento" type="radio" name="matricula_pagamento" id="cartao"></input>
+                                <span class="">Cartão de Crédito</span>
+                            </label>
+                            <label for="boleto">
+                                <input class="" data-toggle-trigger="pagamento" type="radio" name="matricula_pagamento" id="boleto"></input>
+                                <span class="">Boleto Bancário</span>
+                            </label>
+                        </div>
+                        <div data-toggle-target="pagamento" class="form-pagamento-cartao">
+                            <div class="matricula-form-minigrid2">
+                                <label for="nome-cartao">
+                                    <span class="form-label">Nome do Cartão</span>
+                                    <input class="form-style" type="text" id="nome-cartao" name="matricula_nome-cartao" placeholder="Nome impresso no cartão" required />
+                                </label>
+                                <fieldset>
+                                    <span class="form-label">Data de Expiração</span>
+                                    <div class="matricula-minigrid2-subform">
+                                        <label for="mes-cartao">
+                                            <select class="form-style form-select" id="mes-cartao" title="Mês" required>
+                                                <option value="0">Mês</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </label>
+                                        <label for="ano-cartao">
+                                            <select class="form-style form-select" id="ano-cartao" title="Ano" required>
+                                                <option value="0">Ano</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
+                                                <option value="2036">2036</option>
+                                                <option value="2037">2037</option>
+                                                <option value="2038">2038</option>
+                                                <option value="2039">2039</option>
+                                                <option value="2040">2040</option>
+                                                <option value="2041">2041</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <label for="numero-cartao">
+                                    <span class="form-label">Número do Cartão</span>
+                                    <input class="form-style" type="text" id="numero-cartao" name="matricula_numero-cartao" oninput="formatCartaoNumero()" placeholder="1234 4321 1243 4312" />
+                                </label>
+                                <label for="codigo-cartao">
+                                    <span class="form-label">Código de Segurança</span>
+                                    <input class="form-style" type="text" id="codigo-cartao" maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numerical" name="matricula_codigo-cartao" placeholder="xxx" required>
+                                </label>
+                            </div>
+                        </div>
+                        <p>Seu cartão será debitado em <span>R$ 49,00 / Aula</span></p>
+                        <button class="form-botao font-2-r-b cor-6" type="submit">Realizar Matrícula</button>
+                        <small class="form-small font-2-s cor-5"><img src="./img/cadeado.svg" alt="Cadeado" width="12" height="12"> Informações seguras e criptografadas.</small>
+                    </fieldset>
+                </div>
+                <div>
                 </div>
             </form>
         </div>
-    </section>
-
-    <section class="praia container" id="praia" aria-label="Informação da Praia">
-
-        <div class="praia-galeria">
-            <img src="./img/pranchas.jpg" class="img-pranchas" alt="Pranchas">
-            <img src="./img/mapa.jpg" class="img-mapa" alt="Mapa da Praia">
-            <div class="praia-galera-info font-2-s-b cor-5">
-                <h3>Como Chegar</h3>
-                <ul>
-                    <li>Carro <span class="cor-2">pela via Lúcio Costa sentido Barra</span></li>
-                    <li>Ônibus <span class="cor-2">linha 2333, 138, 189, 170</span></li>
-                    <li>Metrô <span class="cor-2">linha azul sentido Zona Sul</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="praia-info">
-            <h1 class="font-1-xl"><span class="cor-p2">Aulas</span> em uma das melhores praias do <span class="cor-p2">Rio</span>.</h1>
-            <ul class="font-2-l cor-3">
-                <li><img src="./img/sandalhas.svg" alt="Local"><span>8km de costa</span></li>
-                <li><img src="./img/coco.svg" alt="Restaurantes"><span>Restaurantes à beira mar</span></li>
-                <li><img src="./img/boia.svg" alt="Salva-vidas"><span>Salva-vidas a cada 300m</span></li>
-            </ul>
-            <div class="praia-info-p">
-                <p class="font-2-r cor-3">Como cidade capital, abriga na zona chamada Plateau, promontório à beira-mar, edifícios públicos e outras construções de importância, como o Palácio Presidencial, construído no fim do século XIX para ser a residência do governador português.</p>
-                <p class="font-2-r cor-3">Ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="aulas-bg" id="aulas" aria-label="Planos de Aulas">
-        <div class="container">
-            <div class="aulas-titulo">
-                <img src="./img/ondas.svg" alt="Ondas">
-                <h1 class="font-1-xl cor-5">Aulas</h1>
-            </div>
-            <div class="aulas-planos">
-                <div class="aulas-cartao">
-                    <img src="./img/surfbot-icon.svg" alt="Icone Surfbot">
-                    <h2 class="font-2-l-b cor-4">Infantil</h2>
-                    <ul class="font-2-s cor-3">
-                        <li>Público entre 5 e 15 anos</li>
-                        <li>Equipamentos fornecidos</li>
-                        <li>Horários de Sex. à Sab.</li>
-                        <li>2 horas seguidas de aula</li>
-                    </ul>
-                    <span class="font-2-s-b cor-p2">R$49,00 / Aula</span>
-                    <a href="./matricula.html">Matricule-se</a>
-                </div>
-                <div class="aulas-cartao">
-                    <img src="./img/surfbot-icon2.svg" alt="Icone Surfbot">
-                    <h2 class="font-2-l-b cor-4">Adulto</h2>
-                    <ul class="font-2-s cor-3">
-                        <li>Público entre 16 e 80 anos</li>
-                        <li>Equipamentos fornecidos</li>
-                        <li>Horários de Sex. à Sab.</li>
-                        <li>3 horas seguidas de aula</li>
-                    </ul>
-                    <span class="font-2-s-b cor-p2">R$69,00 / Aula</span>
-                    <a href="./matricula.html">Matricule-se</a>
-                </div>
-                <div class="aulas-cartao">
-                    <img src="./img/surfbot-icon3.svg" alt="Icone Surfbot">
-                    <h2 class="font-2-l-b cor-4">Profissional</h2>
-                    <ul class="font-2-s cor-3">
-                        <li>Experiência de 3 anos</li>
-                        <li>Trazer o seu equipamento</li>
-                        <li>Horários de Sex. à Sab.</li>
-                        <li>4 horas seguidas de aula</li>
-                    </ul>
-                    <span class="font-2-s-b cor-p2">R$99,00 / Aula</span>
-                    <a href="./matricula.html">Matricule-se</a>
-                </div>
-            </div>
-            <div class="aulas-info font-2-r cor-3">
-                <p>Possui um grupo com mais de <span class="cor-s2">3 pessoas</span>?</p>
-                <p>Entre <a href="#contato">em contato</a> para um desconto personalizado.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="frase-bg">
-        <div class="frase container">
-            <blockquote>
-                <p class="font-1-xl cor-6">“O surf liberta as ondas de uma vida.”</p>
-            </blockquote>
-            <span class="font-2-r-b cor-6">Regis Pereira</span>
-        </div>
-    </div>
-
-    <section class="contato container" id="contato" aria-label="Contato">
-        <h1 class="font-1-xl cor-5">Contato</h1>
-        <div class="contato-container">
-            <div class="contato-form">
-                <form action="#" method="post">
-                    <div>
-                        <label class="form-label" for="nome">Nome</label>
-                        <input class="form-style" type="text" id="nome" name="contato_nome" required />
-                    </div>
-                    <div>
-                        <label class="form-label" for="email">E-mail</label>
-                        <input class="form-style" type="email" id="email" name="contato_email" placeholder="contato@email.com" required />
-                    </div>
-                    <div>
-                        <label class="form-label" for="msg">Mensagem</label>
-                        <textarea class="form-style" id="msg" name="contato_msg"></textarea>
-                    </div>
-                    <div class="button">
-                        <button type="submit">Enviar Mensagem</button>
-                    </div>
-                </form>
-            </div>
-            <div class="contato-info">
-                <div>
-                    <dl class="font-2-s cor-3">
-                        <dt class="font-2-l-b">Endereço</dt>
-                        <dd>Praia Mansa nº 47</dd>
-                        <dd>Rio de Janeiro - RJ</dd>
-                        <dd>Procure a barraca vermelha</dd>
-                    </dl>
-                    <a class="font-2-r-b cor-4" href="#">Ver no mapa</a>
-                </div>
-                <div>
-                    <dl class="font-2-s cor-3">
-                        <dt class="font-2-l-b cor-3">Email & Telefone</dt>
-                        <dd>contato@surfbot.com</dd>
-                        <dd>21 99999-9999</dd>
-                    </dl>
-                </div>
-                <div>
-                    <dl class="font-2-s cor-3">
-                        <dt class="horario font-2-l-b cor-3">Horário</dt>
-                        <dd>De Sexta à Sábado</dd>
-                        <dd>Das 06:00 às 14:00</dd>
-                    </dl>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    </main>
     <footer class="footer-bg">
         <div class="footer container">
             <p class="font-2-r-b cor-6">Surfnet 2023 © Alguns direitos reservados.</p>

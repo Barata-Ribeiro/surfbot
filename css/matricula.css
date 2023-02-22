@@ -1,0 +1,62 @@
+.matricula-container {
+margin-top: 30px;
+margin-bottom: 30px;
+}
+.matricula .mbg {
+    background-color: var(--cor-0);
+    text-align: center;
+    padding: 30px 0;
+}
+.matricula-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 100px !important;
+}
+.matricula-form-minigrid1 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+}
+.matricula-form legend {
+    margin-top: 15px;
+    border-bottom: 2px solid var(--cor-0);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+.form-pagamento-tipo {
+    display: flex;
+}
+.matricula-form-minigrid2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+    margin-bottom: 15px;
+}
+.matricula-minigrid2-subform {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+}
+.matricula-form .form-pagamento-cartao {
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--cor-0);
+}
+.matricula-form .form-botao {
+    background-color: var(--cor-p2);
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 5px;
+    margin: 15px 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.matricula-form .form-botao:hover {
+    background-color: var(--cor-p1);
+}
+.matricula-form .form-small {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
