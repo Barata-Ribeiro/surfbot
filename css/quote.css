@@ -2,9 +2,24 @@
     padding-top: 120px;
     padding-bottom: 120px;
     background: url(../img/quote-bg.jpg) fixed no-repeat center;
-    background-position-y: -300px;
+    background-position-y: -400px;
 }
 .frase {
-    text-align: center;    
+    text-align: center;
     max-width: 80ch;
+}
+
+@media only screen and (max-width: 600px) {
+    .frase-bg {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background-position-y: -200px;
+    }
+
+    .frase {
+        max-width: 90%;
+    }
+    .frase p {
+        font-size: 3.5rem;
+    }
 }

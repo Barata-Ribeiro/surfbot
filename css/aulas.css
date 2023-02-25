@@ -38,14 +38,14 @@
 }
 .aulas-cartao h2::after {
     display: block;
-    content: "";
+    content: '';
     width: 100%;
     height: 2px;
     background: var(--cor-0);
     margin-top: 30px;
 }
 .aulas-cartao ul li::before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 4px;
     height: 4px;
@@ -64,7 +64,7 @@
 }
 .aulas-cartao span::before {
     display: block;
-    content: "";
+    content: '';
     width: 100%;
     height: 2px;
     background: var(--cor-0);
@@ -75,7 +75,7 @@
     justify-content: space-between;
     align-items: center;
     background: var(--cor-5);
-    font: 700 1em/1.5 "Nunito", sans-serif;
+    font: 700 1em/1.5 'Nunito', sans-serif;
     letter-spacing: 0.5px;
     color: var(--cor-6);
     text-transform: uppercase;
@@ -85,7 +85,7 @@
     cursor: pointer;
 }
 .aulas-cartao a::after {
-    content: "";
+    content: '';
     display: inline-block;
     background: url(../../img/seta.svg) no-repeat center;
     width: 15px;
@@ -106,4 +106,24 @@
 .aulas-info a {
     color: var(--cor-3);
     border-bottom: 2px solid var(--cor-s2);
+}
+@media only screen and (max-width: 480px) {
+    .aulas-cartao {
+        padding: 20px;
+    }
+    .aulas-cartao h2 {
+        margin: initial;
+    }
+    .aulas-cartao img {
+        display: none;
+    }
+    .aulas-cartao h2::after {
+        margin-top: 10px;
+    }
+    .aulas-cartao ul li::before {
+        margin-right: 5px;
+    }
+    .aulas-info {
+        text-align: center;
+    }
 }
