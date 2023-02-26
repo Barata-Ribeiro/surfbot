@@ -1,6 +1,6 @@
 .matricula-container {
-margin-top: 30px;
-margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .matricula .mbg {
     background-color: var(--cor-0);
@@ -25,6 +25,49 @@ margin-bottom: 30px;
 }
 .form-pagamento-tipo {
     display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.form-pagamento-tipo label {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 10px 15px;
+    box-shadow: inset 0px 0px 0px 2px rgba(195, 204, 217, 1);
+    background: var(--cor-0);
+}
+.form-pagamento-tipo .ativo,
+.form-plano-tipo .ativo {
+    background: var(--cor-2);
+}
+.form-pagamento-tipo input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    margin: 0px;
+    margin-right: 8px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    background: var(--cor-6);
+    border: 1px solid var(--cor-3);
+    outline: none;
+    transition: 0.2s all linear;
+}
+.form-pagamento-tipo input[type='radio']:checked,
+.form-pagamento-tipo input[type='radio']:focus {
+    border: 6px solid var(--cor-p2);
+}
+.form-pagamento-conteudo {
+    margin-top: 30px;
+}
+.form-pagamento-conteudo p {
+    margin-bottom: 30px;
 }
 .matricula-form-minigrid2 {
     display: grid;
@@ -59,4 +102,74 @@ margin-bottom: 30px;
     flex-wrap: wrap;
     align-items: center;
     gap: 5px;
+}
+.matricula-plano {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 30px;
+    background: var(--cor-0);
+    box-shadow: inset 0px 0px 0px 1px rgba(195, 204, 217, 1),
+        0 4px 4px rgba(218, 227, 235, 0.14), 0 2px 4px rgba(218, 227, 235, 0.12),
+        0 3px 4px rgba(218, 227, 235, 0.2);
+}
+.matricula-plano span p {
+    margin-bottom: 5px;
+}
+.form-plano-tipo {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.form-plano-tipo label {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 5px 10px;
+    box-shadow: inset 0px 0px 0px 2px rgba(195, 204, 217, 1);
+    background: var(--cor-0);
+}
+
+@media screen and (max-width: 768px) {
+    .matricula-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .matricula .mbg {
+        padding: 20px 0;
+    }
+    .matricula-form {
+        display: block;
+    }
+    .matricula-form legend {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .matricula-form-minigrid1 {
+        display: block;
+    }
+    .matricula-form-minigrid2 {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .matricula-minigrid2-subform {
+        display: block;
+    }
+    .form-pagamento-tipo label {
+        padding: 8px 12px;
+    }
+    .form-pagamento-tipo input[type='radio'] {
+        width: 14px;
+        height: 14px;
+    }
+    .matricula-plano {
+        padding: 20px;
+    }
+    .matricula-plano span p {
+        margin-bottom: 3px;
+    }
+    .form-plano-tipo label {
+        padding: 4px 8px;
+    }
 }

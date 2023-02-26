@@ -141,16 +141,16 @@
                             <legend>Forma de Pagamento</legend>
                         </span>
                         <div class="form-pagamento-tipo">
-                            <label for="cartao">
-                                <input class="" data-toggle-trigger="pagamento" type="radio" name="matricula_pagamento" id="cartao"></input>
-                                <span class="">Cartão de Crédito</span>
+                            <label class="ativo" for="cartao">
+                                <input type="radio" name="matricula_pagamento" id="cartao" checked></input>
+                                <span class="font-2-r-b cor-4">Cartão de Crédito</span>
                             </label>
-                            <label for="boleto">
-                                <input class="" data-toggle-trigger="pagamento" type="radio" name="matricula_pagamento" id="boleto"></input>
-                                <span class="">Boleto Bancário</span>
+                            <label class="" for="boleto">
+                                <input type="radio" name="matricula_pagamento" id="boleto"></input>
+                                <span class="font-2-r-b cor-4">Boleto Bancário</span>
                             </label>
                         </div>
-                        <div data-toggle-target="pagamento" class="form-pagamento-cartao">
+                        <div class="form-pagamento-conteudo" id="form-pagamento-cartao">
                             <div class="matricula-form-minigrid2">
                                 <label for="nome-cartao">
                                     <span class="form-label">Nome do Cartão</span>
@@ -212,12 +212,70 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-pagamento-conteudo esconder" id="form-pagamento-boleto">
+                            <p class="font-2-l cor-4">O boleto será gerado assim que você clicar em <span class="font-2-r-b cor-5">"Realizar Matrícula"</span>.</p>
+                        </div>
+
                         <p>Seu cartão será debitado em <span>R$ 49,00 / Aula</span></p>
                         <button class="form-botao font-2-r-b cor-6" type="submit">Realizar Matrícula</button>
                         <small class="form-small font-2-s cor-5"><img src="./img/cadeado.svg" alt="Cadeado" width="12" height="12"> Informações seguras e criptografadas.</small>
                     </fieldset>
                 </div>
                 <div>
+                    <fieldset class="matricula-plano">
+                        <span>
+                            <p class="font-2-r-b cor-5">Escolha o Plano</p>
+                        </span>
+                        <div class="form-plano-tipo">
+                            <label class="ativo" for="infantil">
+                                <input type="radio" name="matricula_plano" id="infantil"></input>
+                                <span class="font-2-r-b cor-4">Infantil</span>
+                            </label>
+                            <label class="" for="adulto">
+                                <input type="radio" name="matricula_plano" id="adulto"></input>
+                                <span class="font-2-r-b cor-4">Adulto</span>
+                            </label>
+                            <label class="" for="profissional">
+                                <input type="radio" name="matricula_plano" id="profissional"></input>
+                                <span class="font-2-r-b cor-4">Profissional</span>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="aulas-cartao">
+                                <img src="./img/surfbot-icon.svg" alt="Icone Surfbot">
+                                <h2 class="font-2-l-b cor-4">Infantil</h2>
+                                <ul class="font-2-s cor-3">
+                                    <li>Público entre 5 e 15 anos</li>
+                                    <li>Equipamentos fornecidos</li>
+                                    <li>Horários de Sex. à Sab.</li>
+                                    <li>2 horas seguidas de aula</li>
+                                </ul>
+                                <span class="font-2-s-b cor-p2">R$49,00 / Aula</span>
+                            </div>
+                            <div class="aulas-cartao esconder">
+                                <img src="./img/surfbot-icon2.svg" alt="Icone Surfbot">
+                                <h2 class="font-2-l-b cor-4">Adulto</h2>
+                                <ul class="font-2-s cor-3">
+                                    <li>Público entre 16 e 80 anos</li>
+                                    <li>Equipamentos fornecidos</li>
+                                    <li>Horários de Sex. à Sab.</li>
+                                    <li>3 horas seguidas de aula</li>
+                                </ul>
+                                <span class="font-2-s-b cor-p2">R$69,00 / Aula</span>
+                            </div>
+                            <div class="aulas-cartao esconder">
+                                <img src="./img/surfbot-icon3.svg" alt="Icone Surfbot">
+                                <h2 class="font-2-l-b cor-4">Profissional</h2>
+                                <ul class="font-2-s cor-3">
+                                    <li>Experiência de 3 anos</li>
+                                    <li>Trazer o seu equipamento</li>
+                                    <li>Horários de Sex. à Sab.</li>
+                                    <li>4 horas seguidas de aula</li>
+                                </ul>
+                                <span class="font-2-s-b cor-p2">R$99,00 / Aula</span>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
             </form>
         </div>
