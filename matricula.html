@@ -21,12 +21,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/style.min.css">
     <script defer src="./js/form.js"></script>
+    <script defer src="./js/script.js"></script>
     <script>document.documentElement.classList.add('js')</script>
 </head>
 
 <body>
+    <div class="superinfo-bg">
+        <div class="container">
+            <p class="font-2-s-b cor-6">Aulas na Praia Mansa de Sexta à Domingo das 06:00 às 14:00</p>
+        </div>
+    </div>
+
     <header class="header-bg">
         <div class="container header">
             <a href="./" aria-label="Logo">
@@ -60,12 +68,15 @@
                 </svg>
             </a>
             <nav class="header-menu">
-                <ul class="font-2-r-b">
-                    <li><a class="cor-6" href="./index.html#praia">Praia</a></li>
-                    <li><a class="cor-6" href="./index.html#aulas">Aulas</a></li>
-                    <li><a class="cor-6" href="./index.html#contato">Contato</a></li>
-                    <li><a class="cor-6" id="main" href="./matricula.html">Matricule-se</a></li>
+                <button id="btn-mobile" class="font-2-s-b cor-0" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="header-menu" aria-expanded="false">Menu
+                    <span id="burger"></span>
+                </button>
+                <ul class="font-2-r-b" id="nav-ul" role="menu">
+                    <li role="menuitem"><a class="cor-6" href="./index.html#praia">Praia</a></li>
+                    <li role="menuitem"><a class="cor-6" href="./index.html#aulas">Aulas</a></li>
+                    <li role="menuitem"><a class="cor-6" href="./index.html#contato">Contato</a></li>
                 </ul>
+                <div class="overlay"></div>
             </nav>
         </div>
     </header>
@@ -74,7 +85,7 @@
         <h1 class="font-1-xl cor-5 mbg">Matricule-se</h1>
         <div class="matricula-container container">
             <form class="matricula-form" action="./" method="post">
-                <div>
+                <div id="matricula-form">
                     <label for="nome">
                         <span class="form-label">Nome Completo</span>
                         <input class="form-style" type="text" id="nome" name="matricula_nome" required />
@@ -216,33 +227,33 @@
                             <p class="font-2-l cor-4">O boleto será gerado assim que você clicar em <span class="font-2-r-b cor-5">"Realizar Matrícula"</span>.</p>
                         </div>
 
-                        <p>Seu cartão será debitado em <span>R$ 49,00 / Aula</span></p>
+                        <p>Seu cartão será debitado em <span data-valor=""></span></p>
                         <button class="form-botao font-2-r-b cor-6" type="submit">Realizar Matrícula</button>
                         <small class="form-small font-2-s cor-5"><img src="./img/cadeado.svg" alt="Cadeado" width="12" height="12"> Informações seguras e criptografadas.</small>
                     </fieldset>
                 </div>
-                <div>
+                <div id="matricula-plano">
                     <fieldset class="matricula-plano">
                         <span>
                             <p class="font-2-r-b cor-5">Escolha o Plano</p>
                         </span>
                         <div class="form-plano-tipo">
-                            <label class="ativo" for="infantil">
+                            <label for="infantil">
                                 <input type="radio" name="matricula_plano" id="infantil"></input>
                                 <span class="font-2-r-b cor-4">Infantil</span>
                             </label>
-                            <label class="" for="adulto">
-                                <input type="radio" name="matricula_plano" id="adulto"></input>
+                            <label class="ativo" for="adulto">
+                                <input type="radio" name="matricula_plano" id="adulto" checked></input>
                                 <span class="font-2-r-b cor-4">Adulto</span>
                             </label>
-                            <label class="" for="profissional">
+                            <label for="profissional">
                                 <input type="radio" name="matricula_plano" id="profissional"></input>
                                 <span class="font-2-r-b cor-4">Profissional</span>
                             </label>
                         </div>
-                        <div>
-                            <div class="aulas-cartao">
-                                <img src="./img/surfbot-icon.svg" alt="Icone Surfbot">
+                        <div class="aulas-tipo-planos">
+                            <div class="aulas-cartao-planos esconder" data-plano="infantil">
+                                <img src="./img/surfbot-icon.svg" width="22" height="40" alt="Icone Surfbot">
                                 <h2 class="font-2-l-b cor-4">Infantil</h2>
                                 <ul class="font-2-s cor-3">
                                     <li>Público entre 5 e 15 anos</li>
@@ -252,8 +263,8 @@
                                 </ul>
                                 <span class="font-2-s-b cor-p2">R$49,00 / Aula</span>
                             </div>
-                            <div class="aulas-cartao esconder">
-                                <img src="./img/surfbot-icon2.svg" alt="Icone Surfbot">
+                            <div class="aulas-cartao-planos" data-plano="adulto">
+                                <img src="./img/surfbot-icon2.svg" width="50" height="40" alt="Icone Surfbot">
                                 <h2 class="font-2-l-b cor-4">Adulto</h2>
                                 <ul class="font-2-s cor-3">
                                     <li>Público entre 16 e 80 anos</li>
@@ -263,8 +274,8 @@
                                 </ul>
                                 <span class="font-2-s-b cor-p2">R$69,00 / Aula</span>
                             </div>
-                            <div class="aulas-cartao esconder">
-                                <img src="./img/surfbot-icon3.svg" alt="Icone Surfbot">
+                            <div class="aulas-cartao-planos esconder" data-plano="profissional">
+                                <img src="./img/surfbot-icon3.svg" width="76" height="40" alt="Icone Surfbot">
                                 <h2 class="font-2-l-b cor-4">Profissional</h2>
                                 <ul class="font-2-s cor-3">
                                     <li>Experiência de 3 anos</li>

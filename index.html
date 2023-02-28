@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/style.min.css">
     <script defer src="./js/script.js"></script>
     <script>document.documentElement.classList.add('js')</script>
@@ -66,12 +67,16 @@
                 </svg>
             </a>
             <nav class="header-menu">
-                <ul class="font-2-r-b">
-                    <li><a class="cor-6" href="#praia">Praia</a></li>
-                    <li><a class="cor-6" href="#aulas">Aulas</a></li>
-                    <li><a class="cor-6" href="#contato">Contato</a></li>
-                    <li><a class="cor-6" id="main" href="./matricula.html">Matricule-se</a></li>
+                <button id="btn-mobile" class="font-2-s-b cor-0" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="header-menu" aria-expanded="false">Menu
+                    <span id="burger"></span>
+                </button>
+                <ul class="font-2-r-b" id="nav-ul" role="menu">
+                    <li role="menuitem"><a class="cor-6" href="#praia">Praia</a></li>
+                    <li role="menuitem"><a class="cor-6" href="#aulas">Aulas</a></li>
+                    <li role="menuitem"><a class="cor-6" href="#contato">Contato</a></li>
+                    <li role="menuitem"><a class="cor-6" id="main" href="./matricula.html">Matricule-se</a></li>
                 </ul>
+                <div class="overlay"></div>
             </nav>
         </div>
     </header>
@@ -79,8 +84,8 @@
     <section class="intro-bg" id="intro" aria-label="Introdução">
         <div class="intro container">
             <h1 class="font-1-xl cor-6">Escola de Surf</h1>
-            <form class="intro-form" action="./" method="post">
-                <div class="intro-form-div">
+            <form class="intro-form" action="./matricula.html" method="get" onsubmit="addEmail()">
+                <div class=" intro-form-div">
                     <input type="email" id="intro_email" name="intro_email" placeholder="contato@email.com" required>
                     <button type="submit" class="intro-botao">Matricule-se</button>
                 </div>
@@ -106,9 +111,9 @@
         <div class="praia-info">
             <h1 class="font-1-xl"><span class="cor-p2">Aulas</span> em uma das melhores praias do <span class="cor-p2">Rio</span>.</h1>
             <ul class="font-2-l cor-3">
-                <li><img src="./img/sandalhas.svg" alt="Local"><span>8km de costa</span></li>
-                <li><img src="./img/coco.svg" alt="Restaurantes"><span>Restaurantes à beira mar</span></li>
-                <li><img src="./img/boia.svg" alt="Salva-vidas"><span>Salva-vidas a cada 300m</span></li>
+                <li><img src="./img/sandalhas.svg" width="52" height="52" alt="Local"><span>8km de costa</span></li>
+                <li><img src="./img/coco.svg" width="52" height="52" alt="Restaurantes"><span>Restaurantes à beira mar</span></li>
+                <li><img src="./img/boia.svg" width="52" height="52" alt="Salva-vidas"><span>Salva-vidas a cada 300m</span></li>
             </ul>
             <div class="praia-info-p">
                 <p class="font-2-r cor-3">Como cidade capital, abriga na zona chamada Plateau, promontório à beira-mar, edifícios públicos e outras construções de importância, como o Palácio Presidencial, construído no fim do século XIX para ser a residência do governador português.</p>
@@ -125,7 +130,7 @@
             </div>
             <div class="aulas-planos">
                 <div class="aulas-cartao">
-                    <img src="./img/surfbot-icon.svg" alt="Icone Surfbot">
+                    <img src="./img/surfbot-icon.svg" width="22" height="40" alt="Icone Surfbot">
                     <h2 class="font-2-l-b cor-4">Infantil</h2>
                     <ul class="font-2-s cor-3">
                         <li>Público entre 5 e 15 anos</li>
@@ -137,7 +142,7 @@
                     <a href="./matricula.html?produto=infantil">Matricule-se</a>
                 </div>
                 <div class="aulas-cartao">
-                    <img src="./img/surfbot-icon2.svg" alt="Icone Surfbot">
+                    <img src="./img/surfbot-icon2.svg" width="50" height="40" alt="Icone Surfbot">
                     <h2 class="font-2-l-b cor-4">Adulto</h2>
                     <ul class="font-2-s cor-3">
                         <li>Público entre 16 e 80 anos</li>
@@ -149,7 +154,7 @@
                     <a href="./matricula.html?produto=adulto">Matricule-se</a>
                 </div>
                 <div class="aulas-cartao">
-                    <img src="./img/surfbot-icon3.svg" alt="Icone Surfbot">
+                    <img src="./img/surfbot-icon3.svg" width="76" height="40" alt="Icone Surfbot">
                     <h2 class="font-2-l-b cor-4">Profissional</h2>
                     <ul class="font-2-s cor-3">
                         <li>Experiência de 3 anos</li>
@@ -207,7 +212,7 @@
                         <dd>Rio de Janeiro - RJ</dd>
                         <dd>Procure a barraca vermelha</dd>
                     </dl>
-                    <a class="font-2-r-b cor-4" href="#">Ver no mapa</a>
+                    <a class="font-2-r-b cor-4" href="https://www.google.com/maps/place/Rio+de+Janeiro,+RJ/@-22.9137531,-43.5860658,11z/data=!3m1!4b1!4m5!3m4!1s0x9bde559108a05b:0x50dc426c672fd24e!8m2!3d-22.9068467!4d-43.1728965" target="_blank" rel="noopener">Ver no mapa</a>
                 </div>
                 <div>
                     <dl class="font-2-s cor-3">

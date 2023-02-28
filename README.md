@@ -6,7 +6,7 @@ Site desenvolvido do zero sobre uma escola de surf. Design feito durante o curso
 
 O professor do curso criou o design do site para ensinar técnicas avançadas de UI Design. Escrevi o código sozinho para fixar o processo de aprendizagem das as aulas anteriores.
 
-Link do site: (Em desenvolvimento)
+Link do site: <https://barata-ribeiro.github.io/surfbot/>
 
 Devido à necessidade de um serviço de hospedagem, as funcionalidades que requerem PHP não funcionarão, portanto, os formulários podem não ter todas as funcionalidades.
 
@@ -16,6 +16,6 @@ Website developed from scratch, about a surfing school. Design made during the "
 
 The course's teacher created the website's design to teach advanced UI Design techniques. I wrote the code alone to fixate the learning process with previous classes.
 
-Website link: (Under Development)
+Website link: <https://barata-ribeiro.github.io/surfbot/>
 
 Due to the need for a hosting service, functionalities that require PHP will not work, so the forms may not have full functionality.

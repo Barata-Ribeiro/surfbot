@@ -14,7 +14,6 @@
         0 1px 18px rgba(24, 34, 46, 0.12), 0 3px 5px rgba(24, 34, 46, 0.2);
     position: relative;
     height: 50px;
-    z-index: 2;
 }
 .intro-form input[type='email'] {
     font: 400 1em/1.5 'Nunito', sans-serif;

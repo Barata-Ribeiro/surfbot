@@ -49,7 +49,7 @@
     display: inline-block;
     width: 4px;
     height: 4px;
-    border: 2px solid #ee2211;
+    border: 2px solid var(--cor-s2);
     border-radius: 50%;
     margin-right: 10px;
 }

@@ -1,3 +1,36 @@
+// começo menu-hamburger
+const btnMobile = document.getElementById('btn-mobile');
+
+function toggleMenu(event) {
+    if (event.type === 'touchstart') event.preventDefault();
+    const nav = document.querySelector('.header-menu');
+    nav.classList.toggle('btnAtivo');
+    const active = nav.classList.contains('btnAtivo');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    const overlay = document.querySelector('.overlay');
+    if (active) {
+        event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+        overlay.classList.add('overlayAtivo');
+        document.body.style.overflow = 'hidden';
+    } else {
+        event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+        overlay.classList.remove('overlayAtivo');
+        document.body.style.overflow = '';
+    }
+    const links = document.querySelectorAll('.header-menu ul a');
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+            overlay.classList.remove('overlayAtivo');
+            nav.classList.remove('btnAtivo');
+            document.body.style.overflow = '';
+        });
+    });
+}
+
+btnMobile.addEventListener('click', toggleMenu);
+btnMobile.addEventListener('touchstart', toggleMenu);
+// fim menu-hamburger
+// inicio verificação de hora
 const agora = new Date();
 const horaAtual = agora.getHours();
 const minutoAtual = agora.getMinutes();
@@ -20,7 +53,8 @@ if (horaAtual > horaAbertura && horaAtual < horaFechamento) {
     // A loja está fechada
     document.querySelector('.horario').classList.add('fechado');
 }
-
+// fim da verificação de hora
+// inicio Rolagem suave
 const menuLinks = document.querySelectorAll('nav a[href*="#"]');
 menuLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -30,3 +64,4 @@ menuLinks.forEach(function (link) {
         targetElement.scrollIntoView({ behavior: 'smooth' });
     });
 });
+// fim Rolagem suave
