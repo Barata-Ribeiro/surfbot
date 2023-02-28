@@ -12,6 +12,31 @@
     grid-template-columns: 2fr 1fr;
     column-gap: 100px !important;
 }
+.matricula-plano::after {
+    display: block;
+    content: '';
+    background: url(../img/bg-icones.svg) no-repeat center;
+    width: 225px;
+    height: 340px;
+    top: 750px;
+    right: 400px;
+    position: absolute;
+}
+@media screen and (min-width: 3400px) {
+    .matricula-plano::after {
+        right: 1350px;
+    }
+}
+@media screen and (max-width: 2000px) {
+    .matricula-plano::after {
+        right: 200px;
+    }
+}
+@media screen and (max-width: 1480px) {
+    .matricula-plano::after {
+        right: 200px;
+    }
+}
 .matricula-form-minigrid1 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -118,6 +143,7 @@
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 30px;
+    position: relative;
 }
 .form-plano-tipo label {
     display: flex;
@@ -217,6 +243,9 @@
     .form-pagamento-tipo label {
         border-radius: 5px;
     }
+    .matricula-form {
+        column-gap: 20px !important;
+    }
 }
 @media screen and (max-width: 768px) {
     .matricula-container {
@@ -237,7 +266,7 @@
     }
     .matricula-form {
         grid-template-columns: 1fr;
-    }
+    }    
     .matricula-form legend {
         margin-top: 10px;
         margin-bottom: 20px;
@@ -264,6 +293,9 @@
     .form-pagamento-tipo input[type='radio']:checked,
     .form-pagamento-tipo input[type='radio']:focus {
         border: 3px solid var(--cor-p2);
+    }
+    .matricula-plano::after {
+        display: none;
     }
     .form-plano-tipo {
         justify-content: space-evenly;
