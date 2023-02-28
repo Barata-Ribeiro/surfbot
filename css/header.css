@@ -12,6 +12,9 @@
 .header-menu ul {
     display: flex;
 }
+.header-menu li a:hover {
+    color: var(--cor-2);
+}
 .header-menu li #main {
     border-bottom: 2px solid var(--cor-s2);
     transition: 0.3s;
