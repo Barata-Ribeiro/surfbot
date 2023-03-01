@@ -12,30 +12,13 @@
     grid-template-columns: 2fr 1fr;
     column-gap: 100px !important;
 }
-.matricula-plano::after {
+.matricula-plano-icones {
     display: block;
-    content: '';
+    margin: 0 auto;
+    margin-top: 50px;
     background: url(../img/bg-icones.svg) no-repeat center;
-    width: 225px;
+    width: 275px;
     height: 340px;
-    top: 750px;
-    right: 400px;
-    position: absolute;
-}
-@media screen and (min-width: 3400px) {
-    .matricula-plano::after {
-        right: 1350px;
-    }
-}
-@media screen and (max-width: 2000px) {
-    .matricula-plano::after {
-        right: 200px;
-    }
-}
-@media screen and (max-width: 1480px) {
-    .matricula-plano::after {
-        right: 200px;
-    }
 }
 .matricula-form-minigrid1 {
     display: grid;
@@ -143,7 +126,6 @@
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 30px;
-    position: relative;
 }
 .form-plano-tipo label {
     display: flex;
@@ -151,8 +133,11 @@
     box-sizing: border-box;
     cursor: pointer;
     padding: 5px 10px;
-    box-shadow: inset 0px 0px 0px 2px rgba(195, 204, 217, 1);
+    border: 2px solid var(--cor-2);
     background: var(--cor-0);
+}
+.form-plano-tipo label:nth-of-type(-n + 2) {
+    border-right: none;
 }
 .form-plano-tipo input[type='radio'] {
     -webkit-appearance: none;
@@ -181,6 +166,15 @@
     color: var(--cor-5);
 }
 
+#mes-cartao option,
+#ano-cartao option {
+    color: var(--cor-5);
+}
+#mes-cartao option:checked,
+#ano-cartao option:checked {
+    color: var(--cor-5);
+}
+
 .aulas-cartao-planos {
     background: var(--cor-6);
     border-radius: 5px;
@@ -199,7 +193,6 @@
     text-transform: uppercase;
     margin-top: -30px;
 }
-
 .aulas-cartao-planos h2::after {
     display: block;
     content: '';
@@ -233,7 +226,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
-@media screen and (max-width: 945px) {
+@media screen and (max-width: 975px) {
     .form-pagamento-tipo {
         flex-direction: column;
         align-items: flex-start;
@@ -241,10 +234,20 @@
         gap: 5px;
     }
     .form-pagamento-tipo label {
+        width: 100%;
         border-radius: 5px;
     }
     .matricula-form {
         column-gap: 20px !important;
+    }
+    .matricula-form-minigrid1 {
+        column-gap: 15px;
+    }
+    .matricula-form-minigrid2 {
+        column-gap: 15px;
+    }
+    .matricula-minigrid2-subform {
+        column-gap: 15px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -266,7 +269,7 @@
     }
     .matricula-form {
         grid-template-columns: 1fr;
-    }    
+    }
     .matricula-form legend {
         margin-top: 10px;
         margin-bottom: 20px;
@@ -280,6 +283,9 @@
     }
     .matricula-minigrid2-subform {
         display: block;
+    }
+    .matricula-plano-icones {
+        display: none;
     }
     .form-pagamento-tipo label {
         font: 700 0.875em/1 'Nunito', sans-serif;
@@ -305,6 +311,9 @@
     .form-plano-tipo label {
         padding: 5px;
         border-radius: 5px;
+    }
+    .form-plano-tipo label:nth-of-type(-n + 2) {
+        border-right: 2px solid var(--cor-2) !important;
     }
     .form-plano-tipo input[type='radio'] {
         margin-right: 5px;
