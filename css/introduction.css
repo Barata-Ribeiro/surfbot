@@ -25,7 +25,6 @@
     border-radius: 5px;
     padding: 15px;
     padding-right: 200px;
-    box-sizing: border-box;
 }
 .intro-form input[type='email']::placeholder {
     color: var(--cor-2);
@@ -72,7 +71,6 @@
         padding-right: 100px;
         box-shadow: 0 6px 10px rgba(24, 34, 46, 0.14),
             0 1px 18px rgba(24, 34, 46, 0.12), 0 3px 5px rgba(24, 34, 46, 0.2);
-        box-sizing: border-box;
     }
     .intro-form .intro-botao {
         position: static;

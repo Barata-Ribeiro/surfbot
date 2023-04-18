@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+* {
+    box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -91,7 +95,6 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    box-sizing: border-box;
     text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
@@ -148,7 +151,6 @@ canvas {
     }
 }
 .form-style {
-    box-sizing: border-box;
     font: 700 1em/1.3 'Nunito', sans-serif;
     background: var(--cor-0);
     box-shadow: 0 4px 4px rgba(218, 227, 235, 0.14),
