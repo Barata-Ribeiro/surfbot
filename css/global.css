@@ -178,3 +178,33 @@ canvas {
 .esconder {
     display: none !important;
 }
+
+.cpf-wrapper,
+.cep-wrapper {
+    position: relative;
+}
+.balaoError {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 120px;
+    text-align: center;
+    visibility: hidden;
+    z-index: 1;
+    top: 40px;
+    left: 20%;
+    transform: translateX(-50%);
+}
+.balaoError::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #f44336 transparent;
+}

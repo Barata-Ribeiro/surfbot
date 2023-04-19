@@ -26,8 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/style.min.css">
-    <script defer type="module" src="./js/scripts.js"></script>
-    <script defer src="./js/form.js"></script>
+    <script async type="module" src="./js/scripts.js"></script>
     <script>document.documentElement.classList.add('js')</script>
 </head>
 
@@ -95,11 +94,13 @@
                     </label>
                     <label for="email">
                         <span class="form-label">Email</span>
-                        <input class="form-style" type="email" id="email" name="matricula_email" placeholder="contato@email.com" required />
+                        <input class="form-style" type="email" id="email" name="matricula_email" required />
                     </label>
                     <label for="cpf">
                         <span class="form-label">CPF</span>
-                        <input class="form-style" type="text" id="cpf" name="matricula_cpf" placeholder="123.456.789-00" oninput="formatCPF()" required />
+                        <div class="cpf-wrapper">
+                            <input class="form-style" type="text" id="cpf" name="matricula_cpf" maxlength="11" required />
+                        </div>
                     </label>
                     <div class="matricula-form-minigrid1">
                         <label for="endereco">
@@ -141,9 +142,11 @@
                         </label>
                         <label for="cep">
                             <span class="form-label">CEP</span>
-                            <input class="form-style" type="text" id="cep" name="matricula_cep" oninput="formatCEP()" placeholder="12.345-000" required />
+                            <div class="cep-wrapper">
+                                <input class="form-style" type="text" id="cep" name="matricula_cep" required />
+                            </div>
                         </label>
-                        <label for="cidade">
+                        <label for=" cidade">
                             <span class="form-label">Cidade</span>
                             <select class="form-style form-select" id="cidade" name="matricula_cidade">
                                 <option value="" hidden="">Selecione a Cidade</option>
@@ -218,7 +221,7 @@
                                 </fieldset>
                                 <label for="numero-cartao">
                                     <span class="form-label">Número do Cartão</span>
-                                    <input class="form-style" type="text" id="numero-cartao" name="matricula_numero-cartao" oninput="formatCartaoNumero()" placeholder="1234 4321 1243 4312" />
+                                    <input class="form-style" type="text" id="numero-cartao" name="matricula_numero-cartao" placeholder="1234 4321 1243 4312" />
                                 </label>
                                 <label for="codigo-cartao">
                                     <span class="form-label">Código de Segurança</span>
