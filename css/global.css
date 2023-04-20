@@ -180,7 +180,9 @@ canvas {
 }
 
 .cpf-wrapper,
-.cep-wrapper {
+.cep-wrapper,
+.cartao-wrapper,
+.data-wrapper {
     position: relative;
 }
 .balaoError {

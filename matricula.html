@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script async type="module" src="./js/scripts.js"></script>
     <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -142,7 +142,7 @@
                         <label for="cep">
                             <span class="form-label">CEP</span>
                             <div class="cep-wrapper">
-                                <input class="form-style" type="text" id="cep" name="matricula_cep" required />
+                                <input class="form-style" type="text" id="cep" maxlength="8" name="matricula_cep" required />
                             </div>
                         </label>
                         <label for=" cidade">
@@ -177,7 +177,7 @@
                                     <div class="matricula-minigrid2-subform">
                                         <label for="mes-cartao">
                                             <select class="form-style form-select" id="mes-cartao" title="Mês" required>
-                                                <option value="0">Mês</option>
+                                                <option value="">Mês</option>
                                                 <option value="01">01</option>
                                                 <option value="02">02</option>
                                                 <option value="03">03</option>
@@ -194,9 +194,9 @@
                                         </label>
                                         <label for="ano-cartao">
                                             <select class="form-style form-select" id="ano-cartao" title="Ano" required>
-                                                <option value="0">Ano</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2024">2024</option>
+                                                <option value="">Ano</option>
+                                                <option value="2021">2023</option>
+                                                <option value="2023">2024</option>
                                                 <option value="2025">2025</option>
                                                 <option value="2026">2026</option>
                                                 <option value="2027">2027</option>
@@ -220,7 +220,9 @@
                                 </fieldset>
                                 <label for="numero-cartao">
                                     <span class="form-label">Número do Cartão</span>
-                                    <input class="form-style" type="text" id="numero-cartao" name="matricula_numero-cartao" placeholder="1234 4321 1243 4312" />
+                                    <div class="cartao-wrapper">
+                                        <input class="form-style" type="text" id="numero-cartao" maxlength="16" name="matricula_numero-cartao" placeholder="1234 4321 1243 4312" />
+                                    </div>
                                 </label>
                                 <label for="codigo-cartao">
                                     <span class="form-label">Código de Segurança</span>
