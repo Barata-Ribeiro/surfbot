@@ -13,11 +13,13 @@ export default function initTimeCheck() {
         // A loja está aberta
         document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
     } else if (horaAtual === horaAbertura && minutoAtual >= minutoAbertura) {
-        // Se a hora atual for igual à hora de abertura e o minuto atual for maior ou igual ao minuto de abertura
+        // Se a hora atual for igual à hora de abertura e o minuto atual
+        // for maior ou igual ao minuto de abertura.
         // A loja acabou de abrir
         document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
     } else if (horaAtual === horaFechamento && minutoAtual < minutoFechamento) {
-        // Se a hora atual for igual à hora de fechamento e o minuto atual for menor que o minuto de fechamento
+        // Se a hora atual for igual à hora de fechamento e
+        // o minuto atual for menor que o minuto de fechamento
         // A loja está prestes a fechar
         document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
     } else {

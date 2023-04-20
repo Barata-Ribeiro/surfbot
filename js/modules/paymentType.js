@@ -11,25 +11,18 @@ export default function initPaymentType() {
         radioNotSelected.querySelector('input').checked = false;
     }
     // Event listener para cara radio input, do cartão e do boleto
-    cartaoLabel.addEventListener('click', function () {
-        updateSelectedRadio(cartaoLabel, boletoLabel);
-    });
-    boletoLabel.addEventListener('click', function () {
-        updateSelectedRadio(boletoLabel, cartaoLabel);
-    });
+    cartaoLabel.addEventListener('click', () => updateSelectedRadio(cartaoLabel, boletoLabel));
+
+    boletoLabel.addEventListener('click', () => updateSelectedRadio(boletoLabel, cartaoLabel));
 
     // Seleciona todos os radio inputs
-    const radioInputs = document.querySelectorAll(
-        '.form-pagamento-tipo input[type="radio"]'
-    );
+    const radioInputs = document.querySelectorAll('.form-pagamento-tipo input[type="radio"]');
     // Para cada radio input adicionar um evento de click
     radioInputs.forEach((input) => {
         input.addEventListener('click', (event) => {
             const targetId = event.target.id;
             // Seleciona todos os elements com a classe 'form-pagamento-conteudo'
-            const pagamentoConteudo = document.querySelectorAll(
-                '.form-pagamento-conteudo'
-            );
+            const pagamentoConteudo = document.querySelectorAll('.form-pagamento-conteudo');
             // Para cada element, adicionar ou remover a classe 'esconder' conforme clica
             pagamentoConteudo.forEach((el) => {
                 if (el.id === `form-pagamento-${targetId}`) {

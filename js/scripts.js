@@ -5,19 +5,19 @@ import ValidarCpf from './modules/validarCpf.js';
 import initFetchCity from './modules/fetchCity.js';
 import initPaymentType from './modules/paymentType.js';
 import initPlanType from './modules/planType.js';
-import initEmailHref from './modules/emailHref.js';
+import initEmailHref, { addEmail } from './modules/emailHref.js';
 import ValidarCep from './modules/validarCep.js';
 import ValidarCartao from './modules/validarCartao.js';
 
 if (new URL(window.location.href).pathname === '/matricula.html') {
     const cpfInput = document.getElementById('cpf');
-    const validarCpf = new ValidarCpf(cpfInput).init();
+    new ValidarCpf(cpfInput).init();
 
     const cepInput = document.getElementById('cep');
-    const validarCep = new ValidarCep(cepInput).init();
+    new ValidarCep(cepInput).init();
 
     const formCartaoElement = document.getElementById('form-pagamento-cartao');
-    const validadorCartao = new ValidarCartao(formCartaoElement).init();
+    new ValidarCartao(formCartaoElement).init();
 
     initFetchCity();
     initPaymentType();
@@ -26,5 +26,6 @@ if (new URL(window.location.href).pathname === '/matricula.html') {
     initBurgerMenu();
     initTimeCheck();
     initSmoothScroll();
-    initEmailHref();
 }
+
+initEmailHref();

@@ -3,16 +3,19 @@ export default class ValidarCpf {
         // this.element é o elemento do formulário
         this.element = element;
     }
+
     // Método para limpar o CPF
     limpar(cpf) {
         // Limpa os dígitos do CPF
         return cpf.replace(/\D/g, '');
     }
+
     // Método para construir o CPF
     construir(cpf) {
         // Constrói o CPF com o formato 000.000.000-00
         return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4');
     }
+
     // Método para formatar o CPF
     formatar(cpf) {
         // Primeiro limpa o CPF
@@ -20,6 +23,7 @@ export default class ValidarCpf {
         // Retorna o CPF formatado
         return this.construir(cpfLimpo);
     }
+
     // Método para validar o CPF
     validar(cpf) {
         // Verifica se o CPF é válido com match
@@ -27,6 +31,7 @@ export default class ValidarCpf {
         // Verifica se o CPF é igual ao padrão
         return matchCpf && matchCpf[0] === cpf;
     }
+
     // Método para validar o CPF na mudança
     validarNaMudanca(cpfElement) {
         // Se o CPF estiver válido...
@@ -40,6 +45,7 @@ export default class ValidarCpf {
             this.errorElement.style.visibility = 'visible';
         }
     }
+
     // Método que adiciona um evento para o formulário
     adicionarEvento() {
         // O evento de 'change' é executado quando o CPF for alterado
@@ -48,6 +54,7 @@ export default class ValidarCpf {
             this.validarNaMudanca(this.element);
         });
     }
+
     // Método que adiciona um span com o texto 'CPF inválido'
     adicionarBalaoError() {
         // Cria um div

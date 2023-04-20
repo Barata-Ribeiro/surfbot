@@ -1,0 +1,30 @@
+{
+    "name": "surfbot",
+    "version": "1.0.0",
+    "description": "Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Barata-Ribeiro/surfbot.git"
+    },
+    "keywords": [
+        "surf",
+        "surfbot",
+        "school",
+        "learning"
+    ],
+    "author": "Barata Ribeiro",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Barata-Ribeiro/surfbot/issues"
+    },
+    "homepage": "https://github.com/Barata-Ribeiro/surfbot#readme",
+    "devDependencies": {
+        "eslint": "^8.38.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.27.5"
+    }
+}

@@ -2,22 +2,21 @@ export default class ValidarCartao {
     constructor(element) {
         this.element = element;
     }
+
     // Remove caracteres não numéricos do número do cartão
     limpar(numero) {
         return numero.replace(/\D/g, '');
     }
+
     // Método para construir o número do cartão
     construir(numero) {
         // Constrói o número do cartão com o formato 0000 0000 0000 0000
         if (numero.length === 16) {
-            return numero.replace(
-                /(\d{4})(\d{4})(\d{4})(\d{4})/g,
-                '$1 $2 $3 $4'
-            );
-        } else {
-            return numero;
+            return numero.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/g, '$1 $2 $3 $4');
         }
+        return numero;
     }
+
     // Método para formatar o número do cartão
     formatar(numero) {
         // Primeiro limpa o número do cartão
@@ -33,13 +32,15 @@ export default class ValidarCartao {
         // Verifica se o número do cartão é igual ao padrão
         return matchNumero && matchNumero[0] === numero;
     }
+
     // Verifica se a data de expiração do cartão é válida
     validarData(mes, ano) {
         const dataAtual = new Date();
         const anoAtual = dataAtual.getFullYear();
         const mesAtual = dataAtual.getMonth() + 1;
-        return !(ano < anoAtual || (ano == anoAtual && mes < mesAtual));
+        return !(ano < anoAtual || (ano === anoAtual && mes < mesAtual));
     }
+
     // Adiciona eventos de validação aos elementos do cartão
     adicionarEventos() {
         const numeroElement = this.element.querySelector('#numero-cartao');
@@ -76,6 +77,7 @@ export default class ValidarCartao {
             }
         });
     }
+
     // Adiciona o balão de erro
     adicionarBalaoErro() {
         const errorElement = document.createElement('div');
@@ -86,6 +88,7 @@ export default class ValidarCartao {
         wrapper.appendChild(errorElement);
         this.errorElement = errorElement;
     }
+
     // Inicializa a classe ValidarCartao
     init() {
         this.adicionarEventos();

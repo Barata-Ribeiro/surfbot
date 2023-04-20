@@ -4,11 +4,7 @@ export default function initPlanType() {
     const precoSpan = document.querySelector('[data-valor]');
 
     function updateSelectedPlanRadio(selectedLabel) {
-        if (
-            !selectedLabel ||
-            !selectedLabel.classList ||
-            !selectedLabel.querySelector
-        ) {
+        if (!selectedLabel || !selectedLabel.classList || !selectedLabel.querySelector) {
             return;
         }
 
@@ -26,6 +22,10 @@ export default function initPlanType() {
             selectedInput.checked = true;
         }
 
+        function updatePrice() {
+            precoSpan.textContent = `R$ ${precoSpan.dataset.valor}`;
+        }
+
         cartoesPlano.forEach((div) => {
             if (div.dataset.plano === selectedInput.id) {
                 div.classList.remove('esconder');
@@ -40,10 +40,6 @@ export default function initPlanType() {
         });
     }
 
-    function updatePrice() {
-        precoSpan.textContent = `R$ ${precoSpan.dataset.valor}`;
-    }
-
     radioLabels.forEach((label) => {
         label.addEventListener('click', () => {
             updateSelectedPlanRadio(label);
@@ -54,14 +50,10 @@ export default function initPlanType() {
     const produto = urlParams.get('produto');
 
     if (produto === 'infantil') {
-        updateSelectedPlanRadio(
-            document.querySelector('label[for="infantil"]')
-        );
+        updateSelectedPlanRadio(document.querySelector('label[for="infantil"]'));
     } else if (produto === 'adulto') {
         updateSelectedPlanRadio(document.querySelector('label[for="adulto"]'));
     } else if (produto === 'profissional') {
-        updateSelectedPlanRadio(
-            document.querySelector('label[for="profissional"]')
-        );
+        updateSelectedPlanRadio(document.querySelector('label[for="profissional"]'));
     }
 }

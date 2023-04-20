@@ -9,8 +9,7 @@ export default function initFetchCity() {
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                cidadeSelect.innerHTML =
-                    "<option value=''>Selecione a Cidade</option>";
+                cidadeSelect.innerHTML = '<option value="">Selecione a Cidade</option>';
                 data.forEach((cidade) => {
                     const option = document.createElement('option');
                     option.value = cidade.nome;
