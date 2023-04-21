@@ -9,23 +9,27 @@ import initEmailHref, { addEmail } from './modules/emailHref.js';
 import ValidarCep from './modules/validarCep.js';
 import ValidarCartao from './modules/validarCartao.js';
 
-if (new URL(window.location.href).pathname === '/matricula.html') {
-    const cpfInput = document.getElementById('cpf');
-    new ValidarCpf(cpfInput).init();
+function init() {
+    if (new URL(window.location.href).pathname === '/matricula.html') {
+        const cpfInput = document.getElementById('cpf');
+        new ValidarCpf(cpfInput).init();
 
-    const cepInput = document.getElementById('cep');
-    new ValidarCep(cepInput).init();
+        const cepInput = document.getElementById('cep');
+        new ValidarCep(cepInput).init();
 
-    const formCartaoElement = document.getElementById('form-pagamento-cartao');
-    new ValidarCartao(formCartaoElement).init();
+        const formCartaoElement = document.getElementById('form-pagamento-cartao');
+        new ValidarCartao(formCartaoElement).init();
 
-    initFetchCity();
-    initPaymentType();
-    initPlanType();
-} else {
-    initBurgerMenu();
-    initTimeCheck();
-    initSmoothScroll();
+        initFetchCity();
+        initPaymentType();
+        initPlanType();
+    } else {
+        initBurgerMenu();
+        initTimeCheck();
+        initSmoothScroll();
+    }
+
+    initEmailHref();
 }
 
-initEmailHref();
+document.addEventListener('DOMContentLoaded', init);
