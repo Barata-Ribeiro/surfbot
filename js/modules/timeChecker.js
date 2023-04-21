@@ -8,22 +8,32 @@ export default function initTimeCheck() {
     const horaFechamento = 14; // Define a hora de fechamento da loja como 14
     const minutoFechamento = 0; // Define o minuto de fechamento da loja como 0
 
-    if (horaAtual > horaAbertura && horaAtual < horaFechamento) {
-        // Se a hora atual estiver entre a hora de abertura e fechamento da loja
-        // A loja está aberta
-        document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
-    } else if (horaAtual === horaAbertura && minutoAtual >= minutoAbertura) {
-        // Se a hora atual for igual à hora de abertura e o minuto atual
-        // for maior ou igual ao minuto de abertura.
-        // A loja acabou de abrir
-        document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
-    } else if (horaAtual === horaFechamento && minutoAtual < minutoFechamento) {
-        // Se a hora atual for igual à hora de fechamento e
-        // o minuto atual for menor que o minuto de fechamento
-        // A loja está prestes a fechar
-        document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
+    const horarioElement = document.querySelector('.horario');
+
+    if (horarioElement) {
+        if (horaAtual > horaAbertura && horaAtual < horaFechamento) {
+            // Se a hora atual estiver entre a hora de abertura e fechamento da loja
+            // A loja está aberta
+            document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
+        } else if (
+            horaAtual === horaAbertura && minutoAtual >= minutoAbertura
+        ) {
+            // Se a hora atual for igual à hora de abertura e o minuto atual
+            // for maior ou igual ao minuto de abertura.
+            // A loja acabou de abrir
+            document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
+        } else if (
+            horaAtual === horaFechamento && minutoAtual < minutoFechamento
+        ) {
+            // Se a hora atual for igual à hora de fechamento e
+            // o minuto atual for menor que o minuto de fechamento
+            // A loja está prestes a fechar
+            document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
+        } else {
+            // A loja está fechada
+            document.querySelector('.horario').classList.add('fechado'); // Adiciona a classe "fechado" ao elemento com a classe "horario"
+        }
     } else {
-        // A loja está fechada
-        document.querySelector('.horario').classList.add('fechado'); // Adiciona a classe "fechado" ao elemento com a classe "horario"
+        console.error('".horario" não foi encontrado...');
     }
 }
