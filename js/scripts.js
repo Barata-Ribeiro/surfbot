@@ -9,7 +9,17 @@ import initEmailHref, { addEmail } from './modules/emailHref.js';
 import ValidarCep from './modules/validarCep.js';
 import ValidarCartao from './modules/validarCartao.js';
 
-function init() {
+function domContentLoaded() {
+    return new Promise((resolve) => {
+        document.addEventListener('DOMContentLoaded', resolve);
+    });
+}
+
+async function init() {
+    if (document.readyState === 'loading') {
+        await domContentLoaded();
+    }
+
     if (new URL(window.location.href).pathname === '/matricula.html') {
         const cpfInput = document.getElementById('cpf');
         new ValidarCpf(cpfInput).init();
@@ -32,4 +42,4 @@ function init() {
     initEmailHref();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+init();
