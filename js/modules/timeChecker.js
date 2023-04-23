@@ -1,39 +1,31 @@
 export default function initTimeCheck() {
-    const agora = new Date(); // Cria uma variável "agora" com a data e hora atuais
-    const horaAtual = agora.getHours(); // Obtém a hora atual a partir da data "agora"
-    const minutoAtual = agora.getMinutes(); // Obtém o minuto atual a partir da data "agora"
+    // Seleciona o elemento HTML com o atributo 'data-semana'
+    const operacao = document.querySelector('[data-semana]');
 
-    const horaAbertura = 6; // Define a hora de abertura da loja como 6
-    const minutoAbertura = 0; // Define o minuto de abertura da loja como 0
-    const horaFechamento = 14; // Define a hora de fechamento da loja como 14
-    const minutoFechamento = 0; // Define o minuto de fechamento da loja como 0
+    // Converte os atributos 'data-semana' e 'data-horario' em arrays de números
+    const diasSemana = operacao.dataset.semana.split(',').map(Number);
+    const horasSemana = operacao.dataset.horario.split(',').map(Number);
 
-    const horarioElement = document.querySelector('.horario');
+    // Cria um objeto de data para a data e hora atual
+    const dataAtual = new Date();
 
-    if (horarioElement) {
-        if (horaAtual > horaAbertura && horaAtual < horaFechamento) {
-            // Se a hora atual estiver entre a hora de abertura e fechamento da loja
-            // A loja está aberta
-            document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
-        } else if (
-            horaAtual === horaAbertura && minutoAtual >= minutoAbertura
-        ) {
-            // Se a hora atual for igual à hora de abertura e o minuto atual
-            // for maior ou igual ao minuto de abertura.
-            // A loja acabou de abrir
-            document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
-        } else if (
-            horaAtual === horaFechamento && minutoAtual < minutoFechamento
-        ) {
-            // Se a hora atual for igual à hora de fechamento e
-            // o minuto atual for menor que o minuto de fechamento
-            // A loja está prestes a fechar
-            document.querySelector('.horario').classList.add('aberto'); // Adiciona a classe "aberto" ao elemento com a classe "horario"
-        } else {
-            // A loja está fechada
-            document.querySelector('.horario').classList.add('fechado'); // Adiciona a classe "fechado" ao elemento com a classe "horario"
-        }
+    // Extrai o dia da semana e a hora atual do objeto de data
+    const diaAtual = dataAtual.getDay();
+    const horaAtual = dataAtual.getHours();
+
+    // Verifica se o dia atual está na lista de dias de funcionamento
+    const fimDeSemana = diasSemana.indexOf(diaAtual) !== -1;
+
+    // Verifica se a hora atual está dentro do horário de funcionamento
+    const OpenHour = horaAtual >= horasSemana[0] && horaAtual < horasSemana[1];
+
+    // Se estiver no dia e horário de funcionamento, adiciona a classe 'aberto' e remove 'fechado'
+    // Caso contrário, remove a classe 'aberto' e adiciona 'fechado'
+    if (fimDeSemana && OpenHour) {
+        operacao.classList.add('aberto');
+        operacao.classList.remove('fechado');
     } else {
-        console.error('".horario" não foi encontrado...');
+        operacao.classList.remove('aberto');
+        operacao.classList.add('fechado');
     }
 }

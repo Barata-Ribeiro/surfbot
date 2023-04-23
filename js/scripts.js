@@ -38,7 +38,6 @@ async function init() {
         initTimeCheck();
         initSmoothScroll();
     }
-
     initEmailHref();
 }
 
