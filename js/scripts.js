@@ -35,9 +35,13 @@ async function init() {
         initPlanType();
     } else {
         const operationsElement = document.querySelector('[data-semana]');
-        new TimeCheck(operationsElement).init();
-        // The following line is only needed if you want to use the custom classes
-        // new TimeCheck(operacaoElement, 'customOpenClass', 'customClosedClass').init();
+        if (operationsElement) {
+            new TimeCheck(operationsElement).init();
+            // A seguinte linha só é necessária se você quiser usar as classes personalizadas.
+            // new TimeCheck(operacaoElement, 'customOpenClass', 'customClosedClass').init();
+        } else {
+            console.error('Elemento com o atributo "[data-semana]" não encontrado');
+        }
 
         initBurgerMenu();
         initSmoothScroll();
