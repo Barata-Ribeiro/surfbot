@@ -1,5 +1,5 @@
 import initBurgerMenu from './modules/menuHamburger.js';
-import initTimeCheck from './modules/timeChecker.js';
+import TimeCheck from './modules/timeChecker.js';
 import initSmoothScroll from './modules/smoothScroll.js';
 import ValidarCpf from './modules/validarCpf.js';
 import initFetchCity from './modules/fetchCity.js';
@@ -34,8 +34,12 @@ async function init() {
         initPaymentType();
         initPlanType();
     } else {
+        const operationsElement = document.querySelector('[data-semana]');
+        new TimeCheck(operationsElement).init();
+        // The following line is only needed if you want to use the custom classes
+        // new TimeCheck(operacaoElement, 'customOpenClass', 'customClosedClass').init();
+
         initBurgerMenu();
-        initTimeCheck();
         initSmoothScroll();
     }
     initEmailHref();
