@@ -1,6 +1,19 @@
 export default class ValidarCartao {
     constructor(element) {
         this.element = element;
+        this.timeout = null;
+    }
+
+    // Método debounce para executar uma função após um determinado atraso
+    debounce(fn, delay) {
+        // Limpa o temporizador atual, se houver algum, para evitar a execução múltipla da função
+        clearTimeout(this.timeout);
+
+        // Define um novo temporizador com a função e o atraso fornecidos
+        this.timeout = setTimeout(() => {
+            // Executa a função fornecida quando o atraso expirar
+            fn();
+        }, delay);
     }
 
     // Remove caracteres não numéricos do número do cartão
@@ -48,51 +61,45 @@ export default class ValidarCartao {
         const anoElement = this.element.querySelector('#ano-cartao');
 
         numeroElement.addEventListener('input', () => {
-            const numeroFormatado = this.formatar(numeroElement.value);
-            numeroElement.value = numeroFormatado;
+            this.debounce(() => {
+                const numeroFormatado = this.formatar(numeroElement.value);
+                numeroElement.value = numeroFormatado;
 
-            if (this.validarNumero(numeroFormatado)) {
-                this.errorElement.style.visibility = 'hidden';
-            } else {
-                this.errorElement.innerText = 'Número do cartão inválido';
-                this.errorElement.style.visibility = 'visible';
-            }
+                if (this.validarNumero(numeroFormatado)) {
+                    numeroElement.setCustomValidity('');
+                } else {
+                    numeroElement.setCustomValidity('Número do cartão inválido');
+                }
+                numeroElement.reportValidity();
+            }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
         });
 
         mesElement.addEventListener('change', () => {
-            if (this.validarData(mesElement.value, anoElement.value)) {
-                this.errorElement.style.visibility = 'hidden';
-            } else {
-                this.errorElement.innerText = 'Data de expiração inválida';
-                this.errorElement.style.visibility = 'visible';
-            }
+            this.debounce(() => {
+                if (this.validarData(mesElement.value, anoElement.value)) {
+                    mesElement.setCustomValidity('');
+                } else {
+                    mesElement.setCustomValidity('Data de expiração inválida');
+                }
+                mesElement.reportValidity();
+            }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
         });
 
         anoElement.addEventListener('change', () => {
-            if (this.validarData(mesElement.value, anoElement.value)) {
-                this.errorElement.style.visibility = 'hidden';
-            } else {
-                this.errorElement.innerText = 'Data de expiração inválida';
-                this.errorElement.style.visibility = 'visible';
-            }
+            this.debounce(() => {
+                if (this.validarData(mesElement.value, anoElement.value)) {
+                    anoElement.setCustomValidity('');
+                } else {
+                    anoElement.setCustomValidity('Data de expiração inválida');
+                }
+                anoElement.reportValidity();
+            }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
         });
-    }
-
-    // Adiciona o balão de erro
-    adicionarBalaoErro() {
-        const errorElement = document.createElement('div');
-        errorElement.classList.add('balaoError');
-        errorElement.style.visibility = 'hidden';
-        const wrapper = this.element;
-        wrapper.style.position = 'relative';
-        wrapper.appendChild(errorElement);
-        this.errorElement = errorElement;
     }
 
     // Inicializa a classe ValidarCartao
     init() {
         this.adicionarEventos();
-        this.adicionarBalaoErro();
         return this;
     }
 }

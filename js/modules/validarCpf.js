@@ -2,6 +2,19 @@ export default class ValidarCpf {
     constructor(element) {
         // this.element é o elemento do formulário
         this.element = element;
+        this.timeout = null;
+    }
+
+    // Método debounce para executar uma função após um determinado atraso
+    debounce(fn, delay) {
+        // Limpa o temporizador atual, se houver algum, para evitar a execução múltipla da função
+        clearTimeout(this.timeout);
+
+        // Define um novo temporizador com a função e o atraso fornecidos
+        this.timeout = setTimeout(() => {
+            // Executa a função fornecida quando o atraso expirar
+            fn();
+        }, delay);
     }
 
     // Método para limpar o CPF
@@ -34,48 +47,28 @@ export default class ValidarCpf {
 
     // Método para validar o CPF na mudança
     validarNaMudanca(cpfElement) {
-        // Se o CPF estiver válido...
-        if (this.validar(cpfElement.value)) {
-            // Retorna o CPF formatado para o usuário
-            cpfElement.value = this.formatar(cpfElement.value);
-            // Oculta o balão de erro
-            this.errorElement.style.visibility = 'hidden';
-        } else {
-            // Mostra o balão de erro
-            this.errorElement.style.visibility = 'visible';
-        }
+        this.debounce(() => {
+            if (this.validar(cpfElement.value) || cpfElement.value.length > 11) {
+                cpfElement.value = this.formatar(cpfElement.value);
+                cpfElement.setCustomValidity('');
+            } else {
+                cpfElement.setCustomValidity('CPF inválido \n Formato: 000.000.000-00');
+            }
+            cpfElement.reportValidity();
+        }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
     }
 
     // Método que adiciona um evento para o formulário
     adicionarEvento() {
-        // O evento de 'change' é executado quando o CPF for alterado
-        this.element.addEventListener('change', () => {
-            // Realiza a validação do CPF na mudança
+        this.element.addEventListener('input', () => {
             this.validarNaMudanca(this.element);
         });
-    }
-
-    // Método que adiciona um span com o texto 'CPF inválido'
-    adicionarBalaoError() {
-        // Cria um div
-        const errorElement = document.createElement('div');
-        // Adiciona a classe 'balaoError' ao div
-        errorElement.classList.add('balaoError');
-        // Adiciona o texto 'CPF inválido' ao div
-        errorElement.innerText = 'CPF inválido \n Formato: xxx.xxx.xxx-xx';
-        // Adiciona o div no wrapper
-        const wrapper = this.element.parentElement;
-        wrapper.appendChild(errorElement);
-        // Adiciona a referência do elemento de erro ao objeto
-        this.errorElement = errorElement;
     }
 
     // Método que inicializa o objeto
     init() {
         // Adicionar um evento ao formulário
         this.adicionarEvento();
-        // Adicionar um balão com o texto 'CPF inválido'
-        this.adicionarBalaoError();
         // Retorna o objeto
         return this;
     }

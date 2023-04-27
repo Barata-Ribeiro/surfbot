@@ -153,8 +153,7 @@ canvas {
 .form-style {
     font: 700 1em/1.3 'Nunito', sans-serif;
     background: var(--cor-0);
-    box-shadow: 0 4px 4px rgba(218, 227, 235, 0.14),
-        0 2px 4px rgba(218, 227, 235, 0.12), 0 3px 4px rgba(218, 227, 235, 0.2);
+    box-shadow: 0 4px 4px rgba(218, 227, 235, 0.14), 0 2px 4px rgba(218, 227, 235, 0.12), 0 3px 4px rgba(218, 227, 235, 0.2);
     border-radius: 5px;
     border: 1px solid var(--cor-2);
     padding: 10px 15px;
@@ -177,36 +176,4 @@ canvas {
 
 .esconder {
     display: none !important;
-}
-
-.cpf-wrapper,
-.cep-wrapper,
-.cartao-wrapper,
-.data-wrapper {
-    position: relative;
-}
-.balaoError {
-    position: absolute;
-    background-color: #f44336;
-    color: white;
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-size: 14px;
-    min-width: 120px;
-    text-align: center;
-    visibility: hidden;
-    z-index: 1;
-    top: 40px;
-    left: 20%;
-    transform: translateX(-50%);
-}
-.balaoError::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #f44336 transparent;
 }

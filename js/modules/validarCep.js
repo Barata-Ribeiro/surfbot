@@ -1,6 +1,19 @@
 export default class ValidarCep {
     constructor(element) {
         this.element = element;
+        this.timeout = null;
+    }
+
+    // Método debounce para executar uma função após um determinado atraso
+    debounce(fn, delay) {
+        // Limpa o temporizador atual, se houver algum, para evitar a execução múltipla da função
+        clearTimeout(this.timeout);
+
+        // Define um novo temporizador com a função e o atraso fornecidos
+        this.timeout = setTimeout(() => {
+            // Executa a função fornecida quando o atraso expirar
+            fn();
+        }, delay);
     }
 
     // Remove caracteres não numéricos do CEP
@@ -27,41 +40,27 @@ export default class ValidarCep {
 
     // Valida o CEP quando o campo é alterado
     validarNaMudanca(cepElement) {
-        if (this.validar(cepElement.value)) {
-            cepElement.value = this.formatar(cepElement.value);
-            this.errorElement.style.visibility = 'hidden';
-        } else {
-            // Mostra o balão de erro
-            this.errorElement.style.visibility = 'visible';
-        }
+        this.debounce(() => {
+            if (this.validar(cepElement.value) || cepElement.value.length > 9) {
+                cepElement.value = this.formatar(cepElement.value);
+                cepElement.setCustomValidity('');
+            } else {
+                cepElement.setCustomValidity('CEP inválido \n Formato: 00000-000');
+            }
+            cepElement.reportValidity();
+        }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
     }
 
     // Adiciona o evento de mudança ao elemento
     adicionarEvento() {
-        this.element.addEventListener('change', () => {
+        this.element.addEventListener('input', () => {
             this.validarNaMudanca(this.element);
         });
-    }
-
-    // Adiciona o balão de erro ao elemento
-    adicionarBalaoError() {
-        // Cria um div
-        const errorElement = document.createElement('div');
-        // Adiciona a classe 'balaoError' ao div
-        errorElement.classList.add('balaoError');
-        // Adiciona o texto 'CEP inválido' ao div
-        errorElement.innerText = 'CEP inválido \n Formato: xxxxx-xxx';
-        // Adiciona o div no wrapper
-        const wrapper = this.element.parentElement;
-        wrapper.appendChild(errorElement);
-        // Adiciona a referência do elemento de erro ao objeto
-        this.errorElement = errorElement;
     }
 
     // Inicializa a classe
     init() {
         this.adicionarEvento();
-        this.adicionarBalaoError();
         return this;
     }
 }
