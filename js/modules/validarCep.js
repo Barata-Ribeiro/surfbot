@@ -41,10 +41,12 @@ export default class ValidarCep {
     // Valida o CEP quando o campo é alterado
     validarNaMudanca(cepElement) {
         this.debounce(() => {
-            if (this.validar(cepElement.value) || cepElement.value.length > 9) {
+            if (this.validar(cepElement.value) || cepElement.value.length === 9) {
                 cepElement.value = this.formatar(cepElement.value);
                 cepElement.setCustomValidity('');
+                cepElement.style.border = '1px solid #c3ccd9';
             } else {
+                cepElement.style.border = '2px solid red';
                 cepElement.setCustomValidity('CEP inválido \n Formato: 00000-000');
             }
             cepElement.reportValidity();

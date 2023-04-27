@@ -48,10 +48,12 @@ export default class ValidarCpf {
     // Método para validar o CPF na mudança
     validarNaMudanca(cpfElement) {
         this.debounce(() => {
-            if (this.validar(cpfElement.value) || cpfElement.value.length > 11) {
+            if (this.validar(cpfElement.value) || cpfElement.value.length === 11) {
                 cpfElement.value = this.formatar(cpfElement.value);
                 cpfElement.setCustomValidity('');
+                cpfElement.style.border = '1px solid #c3ccd9';
             } else {
+                cpfElement.style.border = '2px solid red';
                 cpfElement.setCustomValidity('CPF inválido \n Formato: 000.000.000-00');
             }
             cpfElement.reportValidity();

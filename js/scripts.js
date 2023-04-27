@@ -20,32 +20,29 @@ async function init() {
         await domContentLoaded();
     }
 
-    if (new URL(window.location.href).pathname === '/matricula.html') {
-        const cpfInput = document.getElementById('cpf');
+    const cpfInput = document.getElementById('cpf');
+    const cepInput = document.getElementById('cep');
+    const formCartaoElement = document.getElementById('form-pagamento-cartao');
+    const operationsElement = document.querySelector('[data-semana]');
+
+    if (cpfInput && cepInput && formCartaoElement) {
         new ValidarCpf(cpfInput).init();
-
-        const cepInput = document.getElementById('cep');
         new ValidarCep(cepInput).init();
-
-        const formCartaoElement = document.getElementById('form-pagamento-cartao');
         new ValidarCartao(formCartaoElement).init();
 
         initFetchCity();
         initPaymentType();
         initPlanType();
-    } else {
-        const operationsElement = document.querySelector('[data-semana]');
-        if (operationsElement) {
-            new TimeCheck(operationsElement).init();
-            // A seguinte linha só é necessária se você quiser usar as classes personalizadas.
-            // new TimeCheck(operacaoElement, 'customOpenClass', 'customClosedClass').init();
-        } else {
-            console.error('Elemento com o atributo "[data-semana]" não encontrado');
-        }
-
-        initBurgerMenu();
-        initSmoothScroll();
     }
+
+    if (operationsElement) {
+        new TimeCheck(operationsElement).init();
+        // A seguinte linha só é necessária se você quiser usar as classes personalizadas.
+        // new TimeCheck(operacaoElement, 'customOpenClass', 'customClosedClass').init();
+    }
+
+    initBurgerMenu();
+    initSmoothScroll();
     initEmailHref();
 }
 

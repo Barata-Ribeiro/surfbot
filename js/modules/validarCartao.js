@@ -48,10 +48,31 @@ export default class ValidarCartao {
 
     // Verifica se a data de expiração do cartão é válida
     validarData(mes, ano) {
+        // Cria um objeto Date com a data atual
         const dataAtual = new Date();
+        // Obtém o ano atual
         const anoAtual = dataAtual.getFullYear();
+        // Obtém o mês atual (adiciona 1 para obter o mês no formato 1-12)
         const mesAtual = dataAtual.getMonth() + 1;
-        return !(ano < anoAtual || (ano === anoAtual && mes < mesAtual));
+
+        // Converte o ano de string para número inteiro
+        const anoInt = parseInt(ano, 10);
+        // Converte o mês de string para número inteiro
+        const mesInt = parseInt(mes, 10);
+
+        // Verifica se o ano informado é menor que o ano atual
+        if (anoInt < anoAtual) {
+            // Retorna falso se o ano informado for menor que o ano atual
+            return false;
+        }
+        // Verifica se o ano informado é igual ao ano atual
+        // e se o mês informado é menor ou igual ao mês atual
+        if (anoInt === anoAtual && mesInt <= mesAtual) {
+            // Retorna falso se o mês informado for menor ou igual ao mês atual no mesmo ano
+            return false;
+        }
+        // Retorna verdadeiro se a data de expiração for maior do que a data atual
+        return true;
     }
 
     // Adiciona eventos de validação aos elementos do cartão
@@ -60,6 +81,19 @@ export default class ValidarCartao {
         const mesElement = this.element.querySelector('#mes-cartao');
         const anoElement = this.element.querySelector('#ano-cartao');
 
+        const atualizarBordaData = () => {
+            if (this.validarData(mesElement.value, anoElement.value)) {
+                mesElement.style.border = '1px solid #c3ccd9';
+                anoElement.style.border = '1px solid #c3ccd9';
+                mesElement.setCustomValidity('');
+            } else {
+                mesElement.style.border = '2px solid red';
+                anoElement.style.border = '2px solid red';
+                mesElement.setCustomValidity('Data de expiração inválida');
+            }
+            mesElement.reportValidity();
+        };
+
         numeroElement.addEventListener('input', () => {
             this.debounce(() => {
                 const numeroFormatado = this.formatar(numeroElement.value);
@@ -67,7 +101,9 @@ export default class ValidarCartao {
 
                 if (this.validarNumero(numeroFormatado)) {
                     numeroElement.setCustomValidity('');
+                    numeroElement.style.border = '1px solid #c3ccd9';
                 } else {
+                    numeroElement.style.border = '2px solid red';
                     numeroElement.setCustomValidity('Número do cartão inválido');
                 }
                 numeroElement.reportValidity();
@@ -75,25 +111,11 @@ export default class ValidarCartao {
         });
 
         mesElement.addEventListener('change', () => {
-            this.debounce(() => {
-                if (this.validarData(mesElement.value, anoElement.value)) {
-                    mesElement.setCustomValidity('');
-                } else {
-                    mesElement.setCustomValidity('Data de expiração inválida');
-                }
-                mesElement.reportValidity();
-            }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
+            this.debounce(atualizarBordaData, 1000);
         });
 
         anoElement.addEventListener('change', () => {
-            this.debounce(() => {
-                if (this.validarData(mesElement.value, anoElement.value)) {
-                    anoElement.setCustomValidity('');
-                } else {
-                    anoElement.setCustomValidity('Data de expiração inválida');
-                }
-                anoElement.reportValidity();
-            }, 1000); // 1000 ms (1 segundo) de espera após o usuário parar de digitar
+            this.debounce(atualizarBordaData, 1000);
         });
     }
 
