@@ -76,7 +76,6 @@
     }
     .header-menu ul {
         display: block;
-        box-sizing: border-box;
         position: absolute;
         background: var(--cor-5);
         width: 100%;

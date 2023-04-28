@@ -7,7 +7,6 @@
     <title>Matricule-se | Surfbot</title>
     <meta name="title" content="Matricule-se | Surfbot" />
     <meta name="description" content="Website developed from scratch, about a surfing school. Design made during the 'Advanced UI Design' course from origamid.com" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://barata-ribeiro.github.io/surfbot/matricula.html" />
     <meta property="og:title" content="Matricule-se | Surfbot" />
@@ -26,8 +25,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/style.min.css">
-    <script defer src="./js/form.js"></script>
-    <script defer src="./js/script.js"></script>
     <script>document.documentElement.classList.add('js')</script>
 </head>
 
@@ -87,7 +84,7 @@
     <main class="matricula" id="matricula" aria-label="Matrícula">
         <h1 class="font-1-xl cor-5 mbg">Matricule-se</h1>
         <div class="matricula-container container">
-            <form class="matricula-form" action="./" method="post">
+            <form class="matricula-form" action="./" method="post" novalidate>
                 <div id="matricula-form">
                     <label for="nome">
                         <span class="form-label">Nome Completo</span>
@@ -95,11 +92,11 @@
                     </label>
                     <label for="email">
                         <span class="form-label">Email</span>
-                        <input class="form-style" type="email" id="email" name="matricula_email" placeholder="contato@email.com" required />
+                        <input class="form-style" type="email" id="email" name="matricula_email" required />
                     </label>
                     <label for="cpf">
                         <span class="form-label">CPF</span>
-                        <input class="form-style" type="text" id="cpf" name="matricula_cpf" placeholder="123.456.789-00" oninput="formatCPF()" required />
+                        <input class="form-style" type="text" id="cpf" name="matricula_cpf" required />
                     </label>
                     <div class="matricula-form-minigrid1">
                         <label for="endereco">
@@ -141,9 +138,9 @@
                         </label>
                         <label for="cep">
                             <span class="form-label">CEP</span>
-                            <input class="form-style" type="text" id="cep" name="matricula_cep" oninput="formatCEP()" placeholder="12.345-000" required />
+                            <input class="form-style" type="text" id="cep" name="matricula_cep" required />
                         </label>
-                        <label for="cidade">
+                        <label for=" cidade">
                             <span class="form-label">Cidade</span>
                             <select class="form-style form-select" id="cidade" name="matricula_cidade">
                                 <option value="" hidden="">Selecione a Cidade</option>
@@ -175,7 +172,7 @@
                                     <div class="matricula-minigrid2-subform">
                                         <label for="mes-cartao">
                                             <select class="form-style form-select" id="mes-cartao" title="Mês" required>
-                                                <option value="0">Mês</option>
+                                                <option value="">Mês</option>
                                                 <option value="01">01</option>
                                                 <option value="02">02</option>
                                                 <option value="03">03</option>
@@ -192,7 +189,7 @@
                                         </label>
                                         <label for="ano-cartao">
                                             <select class="form-style form-select" id="ano-cartao" title="Ano" required>
-                                                <option value="0">Ano</option>
+                                                <option value="">Ano</option>
                                                 <option value="2023">2023</option>
                                                 <option value="2024">2024</option>
                                                 <option value="2025">2025</option>
@@ -218,7 +215,7 @@
                                 </fieldset>
                                 <label for="numero-cartao">
                                     <span class="form-label">Número do Cartão</span>
-                                    <input class="form-style" type="text" id="numero-cartao" name="matricula_numero-cartao" oninput="formatCartaoNumero()" placeholder="1234 4321 1243 4312" />
+                                    <input class="form-style" type="text" id="numero-cartao" maxlength="16" name="matricula_numero-cartao" placeholder="1234 4321 1243 4312" />
                                 </label>
                                 <label for="codigo-cartao">
                                     <span class="form-label">Código de Segurança</span>
@@ -256,7 +253,7 @@
                         </div>
                         <div class="aulas-tipo-planos">
                             <div class="aulas-cartao-planos esconder" data-plano="infantil">
-                                <img src="./img/surfbot-icon.svg" width="22" height="40" alt="Icone Surfbot">
+                                <img src="./img/surfbot-icon.svg" width="22" height="40" alt="Ícone Surfbot">
                                 <h2 class="font-2-l-b cor-4">Infantil</h2>
                                 <ul class="font-2-s cor-3">
                                     <li>Público entre 5 e 15 anos</li>
@@ -267,7 +264,7 @@
                                 <span class="font-2-s-b cor-p2">R$49,00 / Aula</span>
                             </div>
                             <div class="aulas-cartao-planos" data-plano="adulto">
-                                <img src="./img/surfbot-icon2.svg" width="50" height="40" alt="Icone Surfbot">
+                                <img src="./img/surfbot-icon2.svg" width="50" height="40" alt="Ícone Surfbot">
                                 <h2 class="font-2-l-b cor-4">Adulto</h2>
                                 <ul class="font-2-s cor-3">
                                     <li>Público entre 16 e 80 anos</li>
@@ -278,7 +275,7 @@
                                 <span class="font-2-s-b cor-p2">R$69,00 / Aula</span>
                             </div>
                             <div class="aulas-cartao-planos esconder" data-plano="profissional">
-                                <img src="./img/surfbot-icon3.svg" width="76" height="40" alt="Icone Surfbot">
+                                <img src="./img/surfbot-icon3.svg" width="76" height="40" alt="Ícone Surfbot">
                                 <h2 class="font-2-l-b cor-4">Profissional</h2>
                                 <ul class="font-2-s cor-3">
                                     <li>Experiência de 3 anos</li>
@@ -298,9 +295,10 @@
     <footer class="footer-bg">
         <div class="footer container">
             <p class="font-2-r-b cor-6">Surfnet 2023 © Alguns direitos reservados.</p>
-            <img class="cor-6" src="./img/surfbot-icon-f.svg" alt="Minilogo surfbot">
+            <img class="cor-6" src="./img/surfbot-icon-f.svg" alt="Mini logo surfbot">
         </div>
     </footer>
+    <script src="./main.js"></script>
 </body>
 
 </html>
