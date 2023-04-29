@@ -1,21 +1,52 @@
+
 # Surfbot
 
-## _Portuguese_
+This is a website developed from scratch for a fictional surfing school. The design of the website was created during the "Advanced UI Design" course from [origamid.com](https://www.origamid.com). The course's instructor created the design to teach advanced UI design techniques. I wrote the code on my own to consolidate the learning process from other classes.
 
-Site desenvolvido do zero sobre uma escola de surf. Design feito durante o curso "UI Design Avançado" da origamid.com
+## Demo
 
-O professor do curso criou o design do site para ensinar técnicas avançadas de UI Design. Escrevi o código sozinho para fixar o processo de aprendizagem das as aulas anteriores.
+[Click here](https://barata-ribeiro.github.io/surfbot/) to see a live demo of the website.
 
-Link do site: <https://barata-ribeiro.github.io/surfbot/>
+![Surfbot](./img/screenshot.gif)
 
-Devido à necessidade de um serviço de hospedagem, as funcionalidades que requerem PHP não funcionarão, portanto, os formulários podem não ter todas as funcionalidades. O formulário inicial de contato utiliza a API gratuita da formsubmit.co, mas o mesmo não irá funcionar pois o email da empresa é fictício.
+## Technologies Used
 
-## _English_
+- HTML
+- CSS
+- JavaScript
 
-Website developed from scratch, about a surfing school. Design made during the "Advanced UI Design" course from origamid.com
+## Features
 
-The course's teacher created the website's design to teach advanced UI Design techniques. I wrote the code alone to fixate the learning process with previous classes.
+- Responsive design for various screen sizes
+- Interactive navigation and burger menu
+- About the beach and the school
+- Contact form
+- Payment page with form for personal info and payment method
 
-Website link: <https://barata-ribeiro.github.io/surfbot/>
+## Known Limitations
 
-Due to the need for a hosting service, functionalities that require PHP will not work, so the forms may not have full functionality. The index.html contact form uses the 'formsubmit.co' free API but won't work because the company's email is fictitious.
+Due to the need for a hosting service, some functionalities that require PHP will not work. As a result, some forms may not have full functionality. The `index.html` contact form uses the [formsubmit.co](https://formsubmit.co) free API but won't work because the surfing school's email is fictitious.
+
+## Getting Started
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+```
+git clone https://github.com/Barata-Ribeiro/surfbot.git
+```
+
+2. Navigate to the project folder:
+```
+cd surfbot
+```
+
+3. Open either the `index.html` or `matricula.html` file in your browser or use LiveServer.
+
+## Contributing
+
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is released under the [MIT License](LICENSE).
