@@ -1,13 +1,13 @@
 import initBurgerMenu from './modules/menuHamburger.js';
-import TimeCheck from './modules/timeChecker.js';
+import Operations from './modules/operations.js';
 import initSmoothScroll from './modules/smoothScroll.js';
 import ValidarCpf from './modules/validarCpf.js';
+import ValidarCep from './modules/validarCep.js';
+import ValidarCartao from './modules/validarCartao.js';
 import initFetchCity from './modules/fetchCity.js';
 import initPaymentType from './modules/paymentType.js';
 import initPlanType from './modules/planType.js';
 import initEmailHref, { addEmail } from './modules/emailHref.js';
-import ValidarCep from './modules/validarCep.js';
-import ValidarCartao from './modules/validarCartao.js';
 
 // Função para retornar uma promessa quando o evento 'DOMContentLoaded' for disparado
 function domContentLoaded() {
@@ -48,8 +48,8 @@ async function init() {
 
     // Verifica se o elemento operation está presente
     if (operationsElement) {
-        // Inicializa a verificação do horário
-        new TimeCheck(operationsElement).init();
+        const operations = new Operations('[data-semana', 'aberto');
+        operations.init();
     }
 
     // Inicializa outras funções da aplicação
