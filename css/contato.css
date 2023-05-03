@@ -98,12 +98,10 @@
     position: relative;
     top: 16px;
     left: -15px;
+    background-color: red;
 }
 .contato-info .horario.aberto::before {
     background-color: #16c70b;
-}
-.contato-info .horario.fechado::before {
-    background-color: red;
 }
 .contato-info a::after {
     content: '';
