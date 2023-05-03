@@ -1,6 +1,6 @@
 import initBurgerMenu from './modules/menuHamburger.js';
 import Operations from './modules/operations.js';
-import initSmoothScroll from './modules/smoothScroll.js';
+import SmoothScroll from './modules/smoothScroll.js';
 import ValidarCpf from './modules/validarCpf.js';
 import ValidarCep from './modules/validarCep.js';
 import ValidarCartao from './modules/validarCartao.js';
@@ -52,9 +52,30 @@ async function init() {
         operations.init();
     }
 
+    const smoothScroll = new SmoothScroll('[data-menu="smooth"] a[href^="#"]');
+    smoothScroll.init();
+
+    // Verifica se há um parâmetro de consulta 'scrollTo' e aplica o smoothScroll.
+    const urlParams = new URLSearchParams(window.location.search);
+    // Verifica se o parâmetro de consulta 'scrollTo' está presente na URL.
+    if (urlParams.has('scrollTo')) {
+        // Caso esteja presente, obtém o valor do parâmetro 'scrollTo' e decodifica
+        // para converter quaisquer caracteres especiais codificados (por exemplo, '%23' para '#').
+        const scrollTo = decodeURIComponent(urlParams.get('scrollTo'));
+
+        // Seleciona o elemento do DOM que corresponde ao valor de 'scrollTo'.
+        const targetElement = document.querySelector(scrollTo);
+
+        // Verifica se o 'targetElement' existe na página.
+        if (targetElement) {
+            // Caso exista, aplica o scroll suave até o 'targetElement' utilizando
+            // as opções de smoothScroll.
+            targetElement.scrollIntoView(smoothScroll.options);
+        }
+    }
+
     // Inicializa outras funções da aplicação
     initBurgerMenu();
-    initSmoothScroll();
     initEmailHref();
 }
 
