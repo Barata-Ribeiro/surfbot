@@ -1,4 +1,4 @@
-import initBurgerMenu from './modules/menuHamburger.js';
+import BurgerMenu from './modules/menuHamburger.js';
 import Operations from './modules/operations.js';
 import SmoothScroll from './modules/smoothScroll.js';
 import ValidarCpf from './modules/validarCpf.js';
@@ -77,7 +77,9 @@ async function init() {
     }
 
     // Inicializa outras funções da aplicação
-    initBurgerMenu();
+    const menuHamburger = new BurgerMenu('btn-mobile', '.header-menu ul a', '.header-menu', '.overlay');
+    menuHamburger.init();
+
     initEmailHref();
 }
 
