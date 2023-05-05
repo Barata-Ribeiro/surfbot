@@ -4,7 +4,7 @@ import SmoothScroll from './modules/smoothScroll.js';
 import ValidarCpf from './modules/validarCpf.js';
 import ValidarCep from './modules/validarCep.js';
 import ValidarCartao from './modules/validarCartao.js';
-import initFetchCity from './modules/fetchCity.js';
+import FetchCity from './modules/fetchCity.js';
 import initPaymentType from './modules/paymentType.js';
 import initPlanType from './modules/planType.js';
 import initEmailHref, { addEmail } from './modules/emailHref.js';
@@ -41,7 +41,9 @@ async function init() {
         new ValidarCartao(formCartaoElement).init();
 
         // Inicializa funções adicionais
-        initFetchCity();
+        const fetchCity = new FetchCity('estado', 'cidade');
+        fetchCity.init();
+
         initPaymentType();
         initPlanType();
     }
